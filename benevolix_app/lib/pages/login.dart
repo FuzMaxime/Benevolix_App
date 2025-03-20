@@ -1,63 +1,103 @@
+import 'package:benevolix_app/services/auth.dart';
 import 'package:benevolix_app/widgets/header_auth.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  final String title;
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
-  const Login({super.key, required this.title});
+  @override
+  _LoginState createState() => _LoginState();
+}
 
-  void handleLogin(String taskName) {}
+class _LoginState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+  String? errorMessage;
+
+  void _handleLogin() async {
+    setState(() {
+      isLoading = true;
+      errorMessage = null;
+    });
+
+    bool success = await login(emailController.text, passwordController.text);
+
+    setState(() {
+      isLoading = false;
+    });
+
+    if (success) {
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      setState(() {
+        errorMessage = "Invalid email or password.";
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      margin: EdgeInsets.only(top: 50.0),
-      padding: EdgeInsets.all(25.0),
-      child: Center(
-        child: Column(
-          children: [
-            HeaderAuth(title: "Welcome Back!"),
-            Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Email',
+      body: Container(
+        margin: const EdgeInsets.only(top: 50.0),
+        padding: const EdgeInsets.all(25.0),
+        child: Center(
+          child: Column(
+            children: [
+              HeaderAuth(title: "Welcome Back!"),
+              Column(
+                children: [
+                  TextField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: 'Email',
+                    ),
                   ),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
+                  const SizedBox(height: 10),
+                  TextField(
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      labelText: 'Password',
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
-                  child: const Text('Sign in'),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("don't have an account?"),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/register');
-                        },
-                        child: Text("register"),
-                      ),
-                    ],
+                  const SizedBox(height: 10),
+                  if (errorMessage != null)
+                    Text(
+                      errorMessage!,
+                      style: const TextStyle(color: Colors.red),
+                    ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: isLoading ? null : _handleLogin,
+                    child: isLoading
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : const Text('Sign in'),
                   ),
-                )
-              ],
-            ),
-          ],
+                  Container(
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Don't have an account?"),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                          child: const Text("Register"),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 }

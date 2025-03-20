@@ -14,7 +14,7 @@ class HeaderAuth extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.topLeft,
-          child: Image.asset('Benevolix.png'),
+          child: Image.asset('assets/images/Benevolix.png'),
         ),
         Column(
           spacing: 25.0,
