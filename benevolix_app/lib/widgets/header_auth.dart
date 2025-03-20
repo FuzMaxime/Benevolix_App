@@ -20,17 +20,16 @@ class HeaderAuth extends StatelessWidget {
           spacing: 25.0,
           children: [
             Align(
-                child: Title(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  title,
+                  style: TextStyle(
                     color: ColorConstant.red,
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        color: ColorConstant.red,
-                        fontSize: 40.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Poppins',
-                      ),
-                    ))),
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins',
+                  ),
+                )),
             Text(
               "Ti brudet prenañ doñv c’hoari poull mat paeañ Brasparz kribañ e daouarn  goleiñ zo",
               style: TextStyle(
