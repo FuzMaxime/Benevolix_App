@@ -46,7 +46,6 @@ Future<bool> isAuthenticated() async {
   String? token = await _getToken();
   if (token == null) return false;
 
-  // Vérifie avec le backend si le token est encore valide
   final response = await http.get(
     Uri.parse("$apiUrl/auth/protected"),
     headers: {
@@ -55,7 +54,7 @@ Future<bool> isAuthenticated() async {
     },
   );
 
-  return response.statusCode == 200; // 200 = Token valide
+  return response.statusCode == 200;
 }
 
 Future<void> logout() async {
