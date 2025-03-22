@@ -25,7 +25,7 @@ class HeaderAuth extends StatelessWidget {
                   title,
                   style: TextStyle(
                     color: ColorConstant.red,
-                    fontSize: 40.0,
+                    fontSize: 32.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
                   ),
@@ -33,7 +33,10 @@ class HeaderAuth extends StatelessWidget {
             Text(
               "Ti brudet prenañ doñv c’hoari poull mat paeañ Brasparz kribañ e daouarn  goleiñ zo",
               style: TextStyle(
-                  color: ColorConstant.grey, fontWeight: FontWeight.w400),
+                color: ColorConstant.grey,
+                fontWeight: FontWeight.w400,
+                fontSize: 15.0,
+              ),
             )
           ],
         ),
