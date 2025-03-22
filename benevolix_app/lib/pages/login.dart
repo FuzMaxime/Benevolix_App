@@ -1,5 +1,8 @@
+import 'package:benevolix_app/constants/color.dart';
+import 'package:benevolix_app/constants/decoration.dart';
 import 'package:benevolix_app/services/auth.dart';
 import 'package:benevolix_app/widgets/header_auth.dart';
+import 'package:benevolix_app/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -44,39 +47,31 @@ class _LoginState extends State<LoginPage> {
         padding: const EdgeInsets.all(25.0),
         child: Center(
           child: Column(
+            spacing: 50.0,
             children: [
               HeaderAuth(title: "Welcome Back!"),
               Column(
+                spacing: 35.0,
                 children: [
                   TextField(
                     controller: emailController,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: 'Email',
-                    ),
+                    decoration: getInputDecoration('Email'),
                   ),
-                  const SizedBox(height: 10),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
+                    decoration: getInputDecoration('Password'),
                   ),
-                  const SizedBox(height: 10),
                   if (errorMessage != null)
                     Text(
                       errorMessage!,
-                      style: const TextStyle(color: Colors.red),
+                      style: TextStyle(color: ColorConstant.red),
                     ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: isLoading ? null : _handleLogin,
-                    child: isLoading
-                        ? const CircularProgressIndicator(color: Colors.white)
-                        : const Text('Sign in'),
-                  ),
+                  const SizedBox(height: 4),
+                  SubmitButton(
+                      text: 'Sign in',
+                      onPressed: _handleLogin,
+                      isLoading: isLoading),
                   Container(
                     alignment: Alignment.center,
                     child: Row(
@@ -87,7 +82,8 @@ class _LoginState extends State<LoginPage> {
                           onPressed: () {
                             Navigator.pushNamed(context, '/register');
                           },
-                          child: const Text("Register"),
+                          child: Text("Register",
+                              style: TextStyle(color: ColorConstant.red)),
                         ),
                       ],
                     ),
