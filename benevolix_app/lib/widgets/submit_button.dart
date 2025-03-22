@@ -35,7 +35,8 @@ class _SubmitButtonState extends State<SubmitButton> {
               style: TextStyle(
                   fontSize: 18,
                   color: ColorConstant.white,
-                  fontFamily: "Poppins")),
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w600)),
     );
   }
 }

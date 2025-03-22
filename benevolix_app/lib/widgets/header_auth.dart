@@ -25,7 +25,7 @@ class HeaderAuth extends StatelessWidget {
                   title,
                   style: TextStyle(
                     color: ColorConstant.red,
-                    fontSize: 40.0,
+                    fontSize: 32.0,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
                   ),

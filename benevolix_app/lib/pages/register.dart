@@ -1,5 +1,8 @@
+import 'package:benevolix_app/constants/color.dart';
+import 'package:benevolix_app/constants/decoration.dart';
 import 'package:benevolix_app/services/auth.dart';
 import 'package:benevolix_app/widgets/header_auth.dart';
+import 'package:benevolix_app/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -51,63 +54,46 @@ class _RegisterState extends State<RegisterPage> {
         padding: const EdgeInsets.all(25.0),
         child: Center(
           child: Column(
+            spacing: 50.0,
             children: [
               HeaderAuth(title: "Create an Account"),
               Column(
+                spacing: 30.0,
                 children: [
                   TextField(
-                    controller: emailController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
-                    ),
-                  ),
-                  const SizedBox(height: 10),
+                      controller: emailController,
+                      decoration: getInputDecoration('Email')),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: firstNameController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'First Name',
-                          ),
+                          decoration: getInputDecoration('First name'),
                         ),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller: lastNameController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Last Name',
-                          ),
+                          decoration: getInputDecoration('Last name'),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
+                    decoration: getInputDecoration('Password'),
                   ),
-                  const SizedBox(height: 10),
                   if (errorMessage != null)
                     Text(
                       errorMessage!,
                       style: const TextStyle(color: Colors.red),
                     ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: isLoading ? null : _handleRegister,
-                    child: isLoading
-                        ? const CircularProgressIndicator(color: Colors.white)
-                        : const Text('Sign Up'),
-                  ),
+                  SubmitButton(
+                      text: 'Register',
+                      onPressed: _handleRegister,
+                      isLoading: isLoading),
                   Container(
                     alignment: Alignment.center,
                     child: Row(
@@ -118,7 +104,8 @@ class _RegisterState extends State<RegisterPage> {
                           onPressed: () {
                             Navigator.pushNamed(context, '/login');
                           },
-                          child: const Text("Login"),
+                          child: Text("Login",
+                              style: TextStyle(color: ColorConstant.red)),
                         ),
                       ],
                     ),
