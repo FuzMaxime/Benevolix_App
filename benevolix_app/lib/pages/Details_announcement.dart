@@ -47,6 +47,8 @@ class AnnoucementDetails extends StatelessWidget {
                 _infoItem(Icons.location_on, "Nantes"),
                 _infoItem(Icons.calendar_today, "22/01/2026"),
                 _infoItem(Icons.access_time, "3 Days"),
+                //_infoItem(Icons.home_work, ""),
+                _infoItem(Icons.business, ""),
               ],
             ),
             const Divider(),
