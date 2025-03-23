@@ -2,9 +2,16 @@ import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/pages/login.dart';
 import 'package:benevolix_app/pages/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'home.dart'; // Import correct de ta page home
 
 void main() {
-  runApp(const MyApp());
+  print("Lancement de l'application..."); // Debug print
+  runApp(
+    const ProviderScope( // Ajout du ProviderScope pour Riverpod
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,6 +19,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Construction de MyApp..."); // Debug print
+
     return MaterialApp(
       title: 'Benevolix',
       initialRoute: '/login',
