@@ -29,7 +29,7 @@ class _LoginState extends State<LoginPage> {
     setState(() {
       isLoading = false;
     });
-
+    print(success);
     if (success) {
       Navigator.pushReplacementNamed(context, '/home');
     } else {

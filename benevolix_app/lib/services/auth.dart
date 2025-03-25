@@ -13,8 +13,7 @@ Future<bool> login(String email, String password) async {
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
-    final token = data["token"];
-    await _saveToken(token);
+    await _saveToken(data["token"], data["userId"]);
     return true;
   } else {
     return false;
@@ -37,7 +36,6 @@ Future<bool> register(
       "Tags": []
     }),
   );
-  print(response.statusCode);
 
   return response.statusCode == 200;
 }
@@ -61,9 +59,10 @@ Future<void> logout() async {
   await _removeToken();
 }
 
-Future<void> _saveToken(String token) async {
+Future<void> _saveToken(String token, int userId) async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.setString("auth_token", token);
+  await prefs.setString("user_id", userId.toString());
 }
 
 Future<String?> _getToken() async {
@@ -71,7 +70,13 @@ Future<String?> _getToken() async {
   return prefs.getString("auth_token");
 }
 
+Future<String?> _getUserId() async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getString("user_id");
+}
+
 Future<void> _removeToken() async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.remove("auth_token");
+  await prefs.remove("user_id");
 }
