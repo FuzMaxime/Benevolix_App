@@ -16,16 +16,18 @@ class AnnoucementDetails extends StatelessWidget {
               children: [
                 // Avatar carré
                 Container(
-                  width: 50.0,  // Largeur de l'avatar carré
+                  width: 50.0, // Largeur de l'avatar carré
                   height: 50.0, // Hauteur de l'avatar carré
                   decoration: BoxDecoration(
-                    color: Colors.red,  // Couleur de fond de l'avatar
-                    borderRadius: BorderRadius.circular(8.0),  // Coins arrondis si nécessaire
+                    color: Colors.red, // Couleur de fond de l'avatar
+                    borderRadius: BorderRadius.circular(
+                        8.0), // Coins arrondis si nécessaire
                   ),
                   child: const Center(
                     child: Text(
-                      "JD",  // Texte pour l'avatar
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      "JD", // Texte pour l'avatar
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -68,32 +70,24 @@ class AnnoucementDetails extends StatelessWidget {
               children: List.generate(
                 3,
                 (index) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 0.5),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 2.0, vertical: 0.5),
                   child: SizedBox(
-                    width: 92, // Limite la largeur du Chip
-                    child: Chip(
-                      labelPadding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0), // Réduit le padding interne
-                      label: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 92), // Limite la largeur pour permettre un saut de ligne
-                        child: const Text(
-                          "Humanitaire",  // Texte à long format
-                          style: TextStyle(fontSize: 12, color: Color(0xFFFA3D33)), // Couleur rouge du texte
-                          maxLines: 2,  // Limite à deux lignes
-                          overflow: TextOverflow.ellipsis,  // Ajoute des "..." si le texte est trop long
-                          softWrap: true,  // Permet le saut de ligne
+                      width: 92, // Limite la largeur du Chip
+                      child: Chip(
+                        label: Text(
+                          "Humanitaire",
+                          style:
+                              TextStyle(fontSize: 12, color: Color(0xFFFA3D33)),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      ),
-                      backgroundColor: const Color.fromARGB(100, 255, 123, 116), // Couleur d'arrière-plan avec 27% d'opacité
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        side: const BorderSide(
-                          width: 0,
-                          color: Color.fromARGB(100, 255, 123, 116),
+                        backgroundColor:
+                            const Color.fromARGB(100, 255, 123, 116),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
                         ),
-                      ),
-                    ),
-                  ),
+                      )),
                 ),
               ),
             )
