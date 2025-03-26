@@ -83,7 +83,6 @@ class _RegisterState extends State<RegisterPage> {
                   ),
                   TextField(
                     controller: phoneController,
-                    obscureText: true,
                     decoration: getInputDecoration('Phone number'),
                   ),
                   TextField(
