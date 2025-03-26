@@ -17,6 +17,7 @@ class _RegisterState extends State<RegisterPage> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   bool isLoading = false;
   String? errorMessage;
 
@@ -27,11 +28,11 @@ class _RegisterState extends State<RegisterPage> {
     });
 
     bool success = await register(
-      emailController.text,
-      passwordController.text,
-      firstNameController.text,
-      lastNameController.text,
-    );
+        emailController.text,
+        passwordController.text,
+        firstNameController.text,
+        lastNameController.text,
+        phoneController.text);
 
     setState(() {
       isLoading = false;
@@ -79,6 +80,10 @@ class _RegisterState extends State<RegisterPage> {
                         ),
                       ),
                     ],
+                  ),
+                  TextField(
+                    controller: phoneController,
+                    decoration: getInputDecoration('Phone number'),
                   ),
                   TextField(
                     controller: passwordController,
