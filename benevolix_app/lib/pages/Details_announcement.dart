@@ -1,3 +1,4 @@
+import 'package:benevolix_app/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class AnnoucementDetails extends StatelessWidget {
@@ -19,15 +20,15 @@ class AnnoucementDetails extends StatelessWidget {
                   width: 50.0, // Largeur de l'avatar carré
                   height: 50.0, // Hauteur de l'avatar carré
                   decoration: BoxDecoration(
-                    color: Colors.red, // Couleur de fond de l'avatar
+                    color: ColorConstant.red, // Couleur de fond de l'avatar
                     borderRadius: BorderRadius.circular(
                         8.0), // Coins arrondis si nécessaire
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       "JD", // Texte pour l'avatar
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: ColorConstant.white, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -60,7 +61,7 @@ class AnnoucementDetails extends StatelessWidget {
               "Gerveur Pinvidik Voger Eno Sav C’hi. Gerveur Pinvidik Voger Eno Sav C’h . Drezo Berr Bihañ Yalc’h Ael Kerc’h...",
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+              style: TextStyle(fontSize: 14, color: ColorConstant.grey),
             ),
             const SizedBox(height: 12),
 
@@ -78,12 +79,11 @@ class AnnoucementDetails extends StatelessWidget {
                         label: Text(
                           "Humanitaire",
                           style:
-                              TextStyle(fontSize: 12, color: Color(0xFFFA3D33)),
+                              TextStyle(fontSize: 12, color: ColorConstant.red),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        backgroundColor:
-                            const Color.fromARGB(100, 255, 123, 116),
+                        backgroundColor: ColorConstant.lightRed,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -100,7 +100,7 @@ class AnnoucementDetails extends StatelessWidget {
   Widget _infoItem(IconData icon, String text) {
     return Row(
       children: [
-        Icon(icon, size: 16, color: Colors.black54),
+        Icon(icon, size: 16, color: ColorConstant.black),
         const SizedBox(width: 4),
         Text(
           text,

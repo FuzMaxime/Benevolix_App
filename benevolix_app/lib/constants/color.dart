@@ -2,6 +2,7 @@ import 'dart:ui';
 
 class ColorConstant {
   static Color red = hexToColor("#FA3D37");
+  static Color lightRed = hexToColor("#64FF7B74");
   static Color black = hexToColor("#1D1B20");
   static Color darkGrey = hexToColor("#353535");
   static Color grey = hexToColor("#595959");

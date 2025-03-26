@@ -1,3 +1,4 @@
+import 'package:benevolix_app/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'Details_announcement.dart';
@@ -11,8 +12,6 @@ class HomePage extends ConsumerWidget {
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
-              child: SizedBox(
-            height: 40,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -34,7 +33,7 @@ class HomePage extends ConsumerWidget {
                 AnnoucementDetails(),
               ],
             ),
-          ))),
+          )),
     );
   }
 
@@ -55,10 +54,10 @@ class HomePage extends ConsumerWidget {
         prefixIcon: const Icon(Icons.search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: const BorderSide(color: Colors.grey),
+          borderSide: BorderSide(color: ColorConstant.grey),
         ),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: ColorConstant.white,
       ),
     );
   }
