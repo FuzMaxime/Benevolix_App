@@ -9,9 +9,6 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(70),
-          child: MainHeader(title: "title")),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(

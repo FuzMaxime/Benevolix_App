@@ -50,8 +50,7 @@ class _RegisterState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.only(top: 50.0),
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(25.0),
         child: Center(
           child: Column(
