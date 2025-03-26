@@ -1,3 +1,4 @@
+import 'package:benevolix_app/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'Details_announcement.dart';
@@ -8,6 +9,9 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70),
+          child: MainHeader(title: "title")),
       body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
