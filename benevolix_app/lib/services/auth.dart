@@ -20,8 +20,8 @@ Future<bool> login(String email, String password) async {
   }
 }
 
-Future<bool> register(
-    String email, String password, String firstName, String lastName) async {
+Future<bool> register(String email, String password, String firstName,
+    String lastName, String phone) async {
   final response = await http.post(
     Uri.parse("$apiUrl/users"),
     headers: {"Content-Type": "application/json"},
@@ -30,7 +30,7 @@ Future<bool> register(
       "LastName": lastName,
       "Email": email,
       "Password": password,
-      "Phone": "0000000000",
+      "Phone": phone,
       "City": "City",
       "Bio": "Bio",
       "Tags": []
