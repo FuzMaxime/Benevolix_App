@@ -17,6 +17,7 @@ class _RegisterState extends State<RegisterPage> {
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   bool isLoading = false;
   String? errorMessage;
 
@@ -27,11 +28,11 @@ class _RegisterState extends State<RegisterPage> {
     });
 
     bool success = await register(
-      emailController.text,
-      passwordController.text,
-      firstNameController.text,
-      lastNameController.text,
-    );
+        emailController.text,
+        passwordController.text,
+        firstNameController.text,
+        lastNameController.text,
+        phoneController.text);
 
     setState(() {
       isLoading = false;
@@ -49,8 +50,7 @@ class _RegisterState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.only(top: 50.0),
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(25.0),
         child: Center(
           child: Column(
@@ -79,6 +79,10 @@ class _RegisterState extends State<RegisterPage> {
                         ),
                       ),
                     ],
+                  ),
+                  TextField(
+                    controller: phoneController,
+                    decoration: getInputDecoration('Phone number'),
                   ),
                   TextField(
                     controller: passwordController,

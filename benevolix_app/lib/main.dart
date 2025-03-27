@@ -1,4 +1,5 @@
 import 'package:benevolix_app/constants/color.dart';
+import 'package:benevolix_app/pages/generic_page.dart';
 import 'package:benevolix_app/pages/login.dart';
 import 'package:benevolix_app/pages/profile.dart';
 import 'package:benevolix_app/pages/register.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
-        '/home': (context) => HomePage(),
+        '/home': (context) => GenericPage(HomePage()),
         '/profile': (context) => ProfilePage()
       },
       theme: ThemeData(
