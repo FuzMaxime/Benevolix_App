@@ -1,39 +1,91 @@
 import 'package:benevolix_app/constants/color.dart';
+import 'package:benevolix_app/models/announcement.dart';
+import 'package:benevolix_app/services/annoucement_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'Details_announcement.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Announcement> allAnnouncements = []; // Liste complète
+  List<Announcement> filteredAnnouncements = []; // Liste filtrée
+
+  String titleFilter = ""; // Filtrage par titre
+  String locationFilter = ""; // Filtrage par ville
+
+  @override
+  void initState() {
+    super.initState();
+    loadAnnouncements();
+  }
+
+  Future<void> loadAnnouncements() async {
+    try {
+      List<Announcement> announcementsData = await getAllAnnoucement();
+      setState(() {
+        allAnnouncements = announcementsData;
+        filteredAnnouncements = allAnnouncements; // Afficher tout par défaut
+      });
+    } catch (e) {
+      print("Erreur lors du chargement des annonces : $e");
+    }
+  }
+
+  void filterAnnouncements() {
+    setState(() {
+      filteredAnnouncements = allAnnouncements.where((annonce) {
+        final matchesTitle = annonce.title.toLowerCase().contains(titleFilter.toLowerCase());
+        final matchesLocation = annonce.adress.toLowerCase().contains(locationFilter.toLowerCase());
+        return matchesTitle && matchesLocation;
+      }).toList();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 50),
-                buildLabel("Quoi ?"),
-                buildSearchField("Rechercher une annonce"),
-                const SizedBox(height: 5),
-                buildLabel("Où ?"),
-                buildSearchField("Nantes"),
-                const SizedBox(height: 20),
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 50),
+              buildLabel("Quoi ?"),
+              buildSearchField("Rechercher une annonce", (value) {
+                setState(() {
+                  titleFilter = value;
+                  filterAnnouncements();
+                });
+              }),
+              const SizedBox(height: 5),
+              buildLabel("Où ?"),
+              buildSearchField("Nantes", (value) {
+                setState(() {
+                  locationFilter = value;
+                  filterAnnouncements();
+                });
+              }),
+              const SizedBox(height: 20),
 
-                // Ajout de plusieurs annonces pour tester le scroll
-                AnnoucementDetails(),
-                const SizedBox(height: 16),
-                AnnoucementDetails(),
-                const SizedBox(height: 16),
-                AnnoucementDetails(),
-                const SizedBox(height: 16),
-                AnnoucementDetails(),
-              ],
-            ),
-          )),
+              // Affichage des annonces filtrées
+              Column(
+                children: filteredAnnouncements
+                    .map((annonce) => Padding(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          child: AnnouncementDetails(announcement: annonce),
+                        ))
+                    .toList(),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -47,8 +99,9 @@ class HomePage extends ConsumerWidget {
     );
   }
 
-  Widget buildSearchField(String hintText) {
+  Widget buildSearchField(String hintText, Function(String) onChanged) {
     return TextField(
+      onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hintText,
         prefixIcon: const Icon(Icons.search),

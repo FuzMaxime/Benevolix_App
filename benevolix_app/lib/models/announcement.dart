@@ -1,7 +1,7 @@
 import 'package:benevolix_app/models/application.dart' show Application;
 import 'package:benevolix_app/models/tag.dart';
 
-class Annoucement {
+class Announcement {
   final int id;
   final String adress;
   final List<Application> application;
@@ -12,7 +12,7 @@ class Annoucement {
   final List<Tag> tags;
   final String title;
 
-  Annoucement({
+  Announcement({
     required this.id,
     required this.adress,
     required this.application,
@@ -24,16 +24,29 @@ class Annoucement {
     required this.title,
   });
 
-  factory Annoucement.fromJson(Map<String, dynamic> json) {
-    return Annoucement(
+  factory Announcement.fromJson(Map<String, dynamic> json) {
+    List<Application> listApplications = [];
+    List<Tag> listTags = [];
+
+    // Vérifie si la liste de candidature json est pas vide puis la transforme en liste de tag
+    if (json['candidatures'] != null && json['candidatures'] is List) {
+      listApplications = (json['candidatures'] as List).map((candidature) => Application.fromJson(candidature)).toList();
+    }
+
+    // Vérifie si la liste de tag json est pas vide puis la transforme en liste de tag
+    if (json['tags'] != null && json['tags'] is List) {
+      listTags = (json['tags'] as List).map((tag) => Tag.fromJson(tag)).toList();
+    }
+
+    return Announcement(
       id: json['id'] ?? 0,
       adress: json['address'] ?? '',
-      application: json['candidatures'] ?? '',
+      application: listApplications,
       description: json['description'] ?? '',
       duration: json['duration'] ?? 0,
       date: json['date'] ?? '',
       isRemote: json['is_remote'] ?? false,
-      tags: json['tags'] ?? '',
+      tags: listTags,
       title: json['title'] ?? '',
     );
   }

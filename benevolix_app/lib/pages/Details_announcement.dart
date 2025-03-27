@@ -1,7 +1,12 @@
 import 'package:benevolix_app/constants/color.dart';
+import 'package:benevolix_app/models/announcement.dart';
 import 'package:flutter/material.dart';
 
-class AnnoucementDetails extends StatelessWidget {
+class AnnouncementDetails extends StatelessWidget {
+  final Announcement announcement;
+
+  const AnnouncementDetails({super.key, required this.announcement});
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -15,28 +20,10 @@ class AnnoucementDetails extends StatelessWidget {
             // Header
             Row(
               children: [
-                // Avatar carré
-                Container(
-                  width: 50.0, // Largeur de l'avatar carré
-                  height: 50.0, // Hauteur de l'avatar carré
-                  decoration: BoxDecoration(
-                    color: ColorConstant.red, // Couleur de fond de l'avatar
-                    borderRadius: BorderRadius.circular(
-                        8.0), // Coins arrondis si nécessaire
-                  ),
-                  child: Center(
-                    child: Text(
-                      "JD", // Texte pour l'avatar
-                      style: TextStyle(
-                          color: ColorConstant.white, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                const Expanded(
+                Expanded(
                   child: Text(
-                    "Unicef - Délégué Départemental H/F",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    announcement.title,
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -44,21 +31,21 @@ class AnnoucementDetails extends StatelessWidget {
             const Divider(),
 
             // Info Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Wrap(
+              spacing: 8.0, // Espace horizontal 
+              runSpacing: 4.0, // Espace vertical 
               children: [
-                _infoItem(Icons.location_on, "Nantes"),
-                _infoItem(Icons.calendar_today, "22/01/2026"),
-                _infoItem(Icons.access_time, "3 Days"),
-                //_infoItem(Icons.home_work, ""),
-                _infoItem(Icons.business, ""),
+                _infoItem(Icons.location_on, announcement.adress),
+                _infoItem(Icons.calendar_today, announcement.date),
+                _infoItem(Icons.access_time, "${announcement.duration} jours"),
+                _infoItem( announcement.isRemote ? Icons.laptop_mac : Icons.business , announcement.isRemote ? "À distance" : "Présentiel"),
               ],
             ),
             const Divider(),
 
             // Description
             Text(
-              "Gerveur Pinvidik Voger Eno Sav C’hi. Gerveur Pinvidik Voger Eno Sav C’h . Drezo Berr Bihañ Yalc’h Ael Kerc’h...",
+              announcement.description,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontSize: 14, color: ColorConstant.grey),
@@ -66,31 +53,22 @@ class AnnoucementDetails extends StatelessWidget {
             const SizedBox(height: 12),
 
             // Tags
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                3,
-                (index) => Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 2.0, vertical: 0.5),
-                  child: SizedBox(
-                      width: 92, // Limite la largeur du Chip
-                      child: Chip(
-                        label: Text(
-                          "Humanitaire",
-                          style:
-                              TextStyle(fontSize: 12, color: ColorConstant.red),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        backgroundColor: ColorConstant.lightRed,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      )),
-                ),
-              ),
-            )
+            Wrap(
+              spacing: 8,
+              runSpacing: 4,
+              children: announcement.tags.map((tag) {
+                return Chip(
+                  label: Text(
+                    tag.name,
+                    style: TextStyle(fontSize: 12, color: ColorConstant.red),
+                  ),
+                  backgroundColor: ColorConstant.lightRed,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                );
+              }).toList(),
+            ),
           ],
         ),
       ),
@@ -102,10 +80,14 @@ class AnnoucementDetails extends StatelessWidget {
       children: [
         Icon(icon, size: 16, color: ColorConstant.black),
         const SizedBox(width: 4),
-        Text(
+        Expanded( 
+        child: Text(
           text,
+          maxLines: 1,  // Limite 1 ligne
+          overflow: TextOverflow.ellipsis,  // ajout de "..." si nécessaire
           style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
         ),
+      ),
       ],
     );
   }
