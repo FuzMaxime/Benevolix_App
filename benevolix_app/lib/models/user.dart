@@ -1,11 +1,13 @@
 class User {
-  final String id;
+  final int id;
   final String firstName;
   final String lastName;
   final String email;
+  final String? password;
   final String? phone;
   final String? city;
   final String? bio;
+  final List<String>? tags;
 
   User({
     required this.id,
@@ -15,17 +17,34 @@ class User {
     this.phone,
     this.city,
     this.bio,
+    this.password,
+    this.tags,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'],
-      firstName: json['firstName'],
-      lastName: json['lastName'],
-      email: json['email'],
+      id: json['id'] ?? 0,
+      firstName: json['first_name'] ?? '',
+      lastName: json['last_name'] ?? '',
+      email: json['email'] ?? '',
       phone: json['phone'],
       city: json['city'],
       bio: json['bio'],
+      tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
+      password: json['password'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'first_name': firstName,
+      'last_name': lastName,
+      'email': email,
+      'phone': phone,
+      'city': city,
+      'bio': bio,
+      'tags': tags,
+      'password': password,
+    };
   }
 }
