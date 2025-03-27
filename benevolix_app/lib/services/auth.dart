@@ -41,7 +41,7 @@ Future<bool> register(String email, String password, String firstName,
 }
 
 Future<bool> isAuthenticated() async {
-  String? token = await _getToken();
+  String? token = await getToken();
   if (token == null) return false;
 
   final response = await http.get(
@@ -65,12 +65,12 @@ Future<void> _saveToken(String token, int userId) async {
   await prefs.setString("user_id", userId.toString());
 }
 
-Future<String?> _getToken() async {
+Future<String?> getToken() async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getString("auth_token");
 }
 
-Future<String?> _getUserId() async {
+Future<String?> getUserId() async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getString("user_id");
 }
