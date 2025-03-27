@@ -70,7 +70,7 @@ Future<String?> getToken() async {
   return prefs.getString("auth_token");
 }
 
-Future<String?> _getUserId() async {
+Future<String?> getUserId() async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getString("user_id");
 }

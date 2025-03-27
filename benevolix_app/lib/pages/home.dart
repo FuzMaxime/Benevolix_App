@@ -1,6 +1,7 @@
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
+import 'package:benevolix_app/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'Details_announcement.dart';
 
