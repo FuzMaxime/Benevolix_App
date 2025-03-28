@@ -1,3 +1,5 @@
+import 'package:benevolix_app/constants/color.dart';
+import 'package:benevolix_app/constants/decoration.dart';
 import 'package:flutter/material.dart';
 
 class CreateAnnouncement extends StatefulWidget {
@@ -8,6 +10,9 @@ class CreateAnnouncement extends StatefulWidget {
 }
 
 class _CreateAnnoucement extends State<CreateAnnouncement> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,12 +22,48 @@ class _CreateAnnoucement extends State<CreateAnnouncement> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text("Slide Up View",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Créer une nouvelle annonce",
+                  style: TextStyle(fontSize: 18, color: ColorConstant.white)),
+              IconButton(
+                icon: Image.asset("assets/images/close.png"),
+                onPressed: () {
+                  Navigator.pop(context); // Ferme la modal
+                },
+              ),
+            ],
+          ),
           SizedBox(height: 10),
-          Text("Contenu de votre slide-up modal ici."),
+          Column(
+            children: [
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                Text(
+                  "Titre",
+                  style: TextStyle(color: ColorConstant.red),
+                ),
+                SizedBox(height: 10,),
+                TextField(
+                  controller: titleController,
+                  decoration: _getInputDecoration(""),
+                )
+              ])
+            ],
+          )
         ],
       ),
     );
   }
+}
+
+_getInputDecoration(String placeholder){
+  return InputDecoration(
+      border: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8.0))),
+      contentPadding: EdgeInsets.all(18.0),
+
+      );
 }
