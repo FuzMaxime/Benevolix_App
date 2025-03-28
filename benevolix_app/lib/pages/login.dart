@@ -9,7 +9,7 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginState createState() => _LoginState();
+  State<LoginPage> createState() => _LoginState();
 }
 
 class _LoginState extends State<LoginPage> {
@@ -29,7 +29,7 @@ class _LoginState extends State<LoginPage> {
     setState(() {
       isLoading = false;
     });
-    print(success);
+
     if (success) {
       Navigator.pushReplacementNamed(context, '/home');
     } else {

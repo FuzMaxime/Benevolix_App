@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/home': (context) => GenericPage(HomePage()),
-        '/profile': (context) => ProfilePage()
+        '/profile': (context) => GenericPage(ProfilePage())
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

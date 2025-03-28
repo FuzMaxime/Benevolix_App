@@ -9,7 +9,7 @@ class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
   @override
-  _RegisterState createState() => _RegisterState();
+  State<RegisterPage> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<RegisterPage> {

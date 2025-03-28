@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/auth.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 final String apiUrl = "http://localhost:8080/api/v1";
 
