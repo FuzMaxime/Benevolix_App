@@ -79,7 +79,7 @@ class NavBarLink extends StatelessWidget {
       children: [
         IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, text);
+              Navigator.pushReplacementNamed(context, link);
             },
             icon: Image.asset(imageLink)),
         Text(

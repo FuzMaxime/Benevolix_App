@@ -1,15 +1,14 @@
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
-import 'package:benevolix_app/widgets/header.dart';
 import 'package:flutter/material.dart';
-import 'Details_announcement.dart';
+import 'details_announcement.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
