@@ -22,6 +22,7 @@ dependencies:
   freezed_annotation: ^2.4.4
   font_awesome_flutter: ^10.8.0
   flutter_secure_storage: ^4.2.1
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +43,11 @@ flutter:
     - assets/images/Benevolix.png
     - assets/images/home_icon.png
     - assets/images/user_icon.png
+    - assets/images/close.png
+    - assets/images/date_icon.png
+    - assets/images/place_icon.png
+    - assets/images/hashtag_icon.png
+    - assets/images/sablier_icon.png
 
   fonts:
     - family: Poppins

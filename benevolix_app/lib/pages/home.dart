@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         filteredAnnouncements = allAnnouncements; // Afficher tout par défaut
       });
     } catch (e) {
-      print("Erreur lors du chargement des annonces : $e");
+      stderr.writeln("Erreur lors du chargement des annonces : $e");
     }
   }
 

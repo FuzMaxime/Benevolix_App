@@ -18,7 +18,7 @@ Future<List<Announcement>> getAllAnnoucement() async {
   );
 
   if (response.statusCode == 200) {
-    final List<dynamic> data = jsonDecode(response.body);
+    final List<dynamic> data = jsonDecode(utf8.decode(response.bodyBytes));
 
     List<Announcement> listAnnouncement =
         data.map((json) => Announcement.fromJson(json)).toList();

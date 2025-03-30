@@ -34,6 +34,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: ColorConstant.white,
         fontFamily: 'Poppins',
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: ColorConstant.white,
+        ),
       ),
     );
   }
