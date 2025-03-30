@@ -54,6 +54,7 @@ class _LoginState extends State<LoginPage> {
                 children: [
                   TextField(
                     controller: emailController,
+                    keyboardType: TextInputType.text,
                     decoration: getInputDecoration('Email'),
                   ),
                   TextField(

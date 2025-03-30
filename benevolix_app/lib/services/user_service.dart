@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:benevolix_app/models/user.dart';
 import 'package:benevolix_app/services/auth.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-final String baseUrl = "http://localhost:8080/api/v1/users";
+final String baseUrl = "${dotenv.env['API_URL']?? "http://localhost:8080/api/v1"}/users";
 
 class UserService {
   /*
