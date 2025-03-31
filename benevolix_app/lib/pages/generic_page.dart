@@ -4,10 +4,8 @@ import 'package:benevolix_app/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/**
- * GenericPage is a reusable page template that can be used to wrap any child widget.
- * It provides a consistent layout with a header, bottom navigation bar, and a floating action button.
- */
+/// GenericPage is a reusable page template that can be used to wrap any child widget.
+/// It provides a consistent layout with a header, bottom navigation bar, and a floating action button.
 class GenericPage extends ConsumerStatefulWidget {
   final Widget child;
 

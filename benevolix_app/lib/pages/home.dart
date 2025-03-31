@@ -62,15 +62,15 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 50),
-              buildLabel("What?"), // Label for the title search field
-              buildSearchField("Search for an announcement", (value) {
+              buildLabel("Quoi ?"), // Label for the title search field
+              buildSearchField("Rechercher une annonce", (value) {
                 setState(() {
                   titleFilter = value;
                   filterAnnouncements();
                 });
               }),
               const SizedBox(height: 5),
-              buildLabel("Where?"), // Label for the location search field
+              buildLabel("Où ?"), // Label for the location search field
               buildSearchField("Nantes", (value) {
                 setState(() {
                   locationFilter = value;
