@@ -32,13 +32,15 @@ class AnnouncementDetails extends StatelessWidget {
 
             // Info Row
             Wrap(
-              spacing: 8.0, // Espace horizontal 
-              runSpacing: 4.0, // Espace vertical 
+              spacing: 8.0, // Horizontal spacing
+              runSpacing: 4.0, // Vertical spacing
               children: [
-                _infoItem(Icons.location_on, announcement.adress),
-                _infoItem(Icons.calendar_today, announcement.date),
-                _infoItem(Icons.access_time, "${announcement.duration} jours"),
-                _infoItem( announcement.isRemote ? Icons.laptop_mac : Icons.business , announcement.isRemote ? "À distance" : "Présentiel"),
+                _infoItem(Icons.location_on, announcement.adress), // Location icon and address
+                _infoItem(Icons.calendar_today, announcement.date), // Calendar icon and date
+                _infoItem(Icons.access_time, "${announcement.duration} days"), // Duration icon and duration
+                _infoItem(
+                    announcement.isRemote ? Icons.laptop_mac : Icons.business,
+                    announcement.isRemote ? "Remote" : "In-person"), // Remote or in-person icon and text
               ],
             ),
             const Divider(),
@@ -75,19 +77,20 @@ class AnnouncementDetails extends StatelessWidget {
     );
   }
 
+  // Helper method to create an info item with an icon and text
   Widget _infoItem(IconData icon, String text) {
     return Row(
       children: [
         Icon(icon, size: 16, color: ColorConstant.black),
         const SizedBox(width: 4),
-        Expanded( 
-        child: Text(
-          text,
-          maxLines: 1,  // Limite 1 ligne
-          overflow: TextOverflow.ellipsis,  // ajout de "..." si nécessaire
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        Expanded(
+          child: Text(
+            text,
+            maxLines: 1, // Limit to one line
+            overflow: TextOverflow.ellipsis, // Add ellipsis if necessary
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          ),
         ),
-      ),
       ],
     );
   }
