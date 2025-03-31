@@ -31,7 +31,7 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.8,
-      width: MediaQuery.of(context).size.width * 0.95,
+      width: double.infinity,
       padding: EdgeInsets.all(16),
       child: SingleChildScrollView(
         child: Column(
@@ -145,7 +145,19 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
                 style: TextStyle(color: ColorConstant.white),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 15),
+            Wrap(
+              spacing: 8,
+              children:  announcement.application.map((application) => Chip(
+                label: ProfilePicture(
+                  firstName: "U",
+                  lastName: application.annonceId.toString(),
+                  size: AvatarSize.small,
+                ),
+                backgroundColor: ColorConstant.darkRed,
+              )).toList(),
+            ),
+            SizedBox(height: 15),
             SizedBox(
               width: double.infinity,
               child: SubmitButton(

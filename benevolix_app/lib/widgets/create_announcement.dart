@@ -72,7 +72,7 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
       isTagLoading = false;
     });
 
-    if(response != null) Navigator.pop(context);
+    if(response != null) Navigator.pushReplacementNamed(context, "/home");
   }
 
   @override

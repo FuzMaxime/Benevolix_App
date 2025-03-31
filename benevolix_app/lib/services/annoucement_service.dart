@@ -23,7 +23,6 @@ Future<List<Announcement>> getAllAnnoucement() async {
 
     List<Announcement> listAnnouncement =
         data.map((json) => Announcement.fromJson(json)).toList();
-
     return listAnnouncement;
   } else {
     return [];
