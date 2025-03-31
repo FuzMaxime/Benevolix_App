@@ -4,6 +4,10 @@ import 'package:benevolix_app/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/**
+ * GenericPage is a reusable page template that can be used to wrap any child widget.
+ * It provides a consistent layout with a header, bottom navigation bar, and a floating action button.
+ */
 class GenericPage extends ConsumerStatefulWidget {
   final Widget child;
 
@@ -14,11 +18,12 @@ class GenericPage extends ConsumerStatefulWidget {
 }
 
 class _GenericPage extends ConsumerState<GenericPage> {
+  // Method to show a modal bottom sheet for creating an announcement
   void _showSlideUpView() {
     showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        // Permet un affichage complet
+        // Allows full-screen display
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
@@ -29,10 +34,10 @@ class _GenericPage extends ConsumerState<GenericPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widget.child,
+      body: widget.child, // The main content of the page
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(70),
-          child: MainHeader(title: "title")),
+          child: MainHeader(title: "title")), // Custom header for the page
       bottomNavigationBar: BottomAppBar(
         height: 84,
         color: ColorConstant.black,
@@ -62,6 +67,7 @@ class _GenericPage extends ConsumerState<GenericPage> {
   }
 }
 
+// Widget for navigation bar links
 class NavBarLink extends StatelessWidget {
   final String text;
   final String link;
@@ -74,7 +80,7 @@ class NavBarLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Navigator.pushReplacementNamed(context, link);
+        Navigator.pushReplacementNamed(context, link); // Navigate to the specified link
       },
       style: TextButton.styleFrom(
         foregroundColor: ColorConstant.white,
@@ -83,7 +89,7 @@ class NavBarLink extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, color: ColorConstant.white,),
+          Icon(icon, color: ColorConstant.white),
           SizedBox(height: 4),
           Text(text, style: TextStyle(color: ColorConstant.white)),
         ],
