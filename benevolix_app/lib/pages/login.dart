@@ -38,7 +38,7 @@ class _LoginState extends State<LoginPage> {
     } else {
       // Display an error message if login fails
       setState(() {
-        errorMessage = "Invalid email or password.";
+        errorMessage = "Email ou mot de passe invalide.";
       });
     }
   }
@@ -52,7 +52,7 @@ class _LoginState extends State<LoginPage> {
           child: Column(
             spacing: 50.0,
             children: [
-              HeaderAuth(title: "Welcome Back!"), // Header for the login page
+              HeaderAuth(title: "Content de vous revoir !"), // Header for the login page
               Column(
                 spacing: 35.0,
                 children: [
@@ -64,7 +64,7 @@ class _LoginState extends State<LoginPage> {
                   TextField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: getInputDecoration('Password'), // Input decoration for the password field
+                    decoration: getInputDecoration('Mot de passe'), // Input decoration for the password field
                   ),
                   if (errorMessage != null)
                     Text(
@@ -73,7 +73,7 @@ class _LoginState extends State<LoginPage> {
                     ),
                   const SizedBox(height: 4),
                   SubmitButton(
-                      text: 'Sign in',
+                      text: 'Se connecter',
                       onPressed: _handleLogin,
                       isLoading: isLoading), // Button to initiate the login process
                   Container(
@@ -81,12 +81,12 @@ class _LoginState extends State<LoginPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Don't have an account?"),
+                        const Text("Vous n'avez pas de compte ?"),
                         TextButton(
                           onPressed: () {
                             Navigator.pushNamed(context, '/register'); // Navigate to the registration page
                           },
-                          child: Text("Register",
+                          child: Text("S'inscrire",
                               style: TextStyle(color: ColorConstant.red)),
                         ),
                       ],
