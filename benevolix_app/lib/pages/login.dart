@@ -15,15 +15,17 @@ class LoginPage extends StatefulWidget {
 class _LoginState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  bool isLoading = false;
-  String? errorMessage;
+  bool isLoading = false; // Indicates if the login process is ongoing
+  String? errorMessage; // Stores any error message to display
 
+  // Method to handle the login process
   void _handleLogin() async {
     setState(() {
       isLoading = true;
       errorMessage = null;
     });
 
+    // Attempt to log in using the provided email and password
     bool success = await login(emailController.text, passwordController.text);
 
     setState(() {
@@ -31,8 +33,10 @@ class _LoginState extends State<LoginPage> {
     });
 
     if (success) {
+      // Navigate to the home page if login is successful
       Navigator.pushReplacementNamed(context, '/home');
     } else {
+      // Display an error message if login fails
       setState(() {
         errorMessage = "Invalid email or password.";
       });
@@ -48,19 +52,19 @@ class _LoginState extends State<LoginPage> {
           child: Column(
             spacing: 50.0,
             children: [
-              HeaderAuth(title: "Welcome Back!"),
+              HeaderAuth(title: "Welcome Back!"), // Header for the login page
               Column(
                 spacing: 35.0,
                 children: [
                   TextField(
                     controller: emailController,
                     keyboardType: TextInputType.text,
-                    decoration: getInputDecoration('Email'),
+                    decoration: getInputDecoration('Email'), // Input decoration for the email field
                   ),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: getInputDecoration('Password'),
+                    decoration: getInputDecoration('Password'), // Input decoration for the password field
                   ),
                   if (errorMessage != null)
                     Text(
@@ -71,7 +75,7 @@ class _LoginState extends State<LoginPage> {
                   SubmitButton(
                       text: 'Sign in',
                       onPressed: _handleLogin,
-                      isLoading: isLoading),
+                      isLoading: isLoading), // Button to initiate the login process
                   Container(
                     alignment: Alignment.center,
                     child: Row(
@@ -80,7 +84,7 @@ class _LoginState extends State<LoginPage> {
                         const Text("Don't have an account?"),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/register');
+                            Navigator.pushNamed(context, '/register'); // Navigate to the registration page
                           },
                           child: Text("Register",
                               style: TextStyle(color: ColorConstant.red)),
