@@ -6,6 +6,7 @@ import 'package:benevolix_app/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:benevolix_app/services/candidature_service.dart';
 import 'package:benevolix_app/widgets/profile_picture.dart';
+import 'package:benevolix_app/services/auth.dart';
 
 class DetailsAnnouncement extends StatefulWidget {
   final Announcement announcement;
@@ -19,13 +20,14 @@ class DetailsAnnouncement extends StatefulWidget {
 class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
   bool isLoading = false;
   late Announcement announcement;
+  Future<String?> currentUserId = getUserId();
 
   @override
   void initState() {
     super.initState();
     announcement = widget.announcement;
   }
-
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.8,
@@ -36,14 +38,14 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               width: double.infinity,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ProfilePicture(
-                    firstName: announcement.title,
-                    lastName: announcement.title,
+                    firstName: announcement.ownerFirstname,
+                    lastName: announcement.ownerLastname,
                     size: AvatarSize.small,
                   ),
                   IconButton(
@@ -66,7 +68,7 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
               ),
             ),
             SizedBox(height: 15),
-            Container(
+            SizedBox(
               width: double.infinity,
               child: Row(
                 children: [
@@ -84,7 +86,7 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
               ),
             ),
             SizedBox(height: 15),
-            Container(
+            SizedBox(
               width: double.infinity,
               child: Row(
                 children: [
@@ -148,8 +150,23 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
               width: double.infinity,
               child: SubmitButton(
                 text: 'Je souhaite participer',
-                onPressed: () {
-                  createCandidature(announcement.id, DateTime.now(), "Waiting", announcement.ownerId);
+                onPressed: () async {
+                  try {
+                    String? userId = await currentUserId;
+                    if (userId != null) {
+                      int parsedId = int.parse(userId.trim());
+                      await createCandidature(
+                        announcement.id,
+                        DateTime.now(),
+                        "Waiting",
+                        parsedId,
+                      );
+                    } else {
+                      print("Erreur : l'ID utilisateur est nul.");
+                    }
+                  } catch (e) {
+                    print("Erreur lors de la création de la candidature : $e");
+                  }
                 },
                 isLoading: isLoading,
               ),
