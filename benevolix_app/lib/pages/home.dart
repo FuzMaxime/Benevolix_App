@@ -4,6 +4,7 @@ import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
 import 'package:flutter/material.dart';
+import '../services/permission.dart';
 import 'details_announcement.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,16 +15,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Announcement> allAnnouncements = []; // Liste complète
-  List<Announcement> filteredAnnouncements = []; // Liste filtrée
+  List<Announcement> allAnnouncements = [];
+  List<Announcement> filteredAnnouncements = [];
 
-  String titleFilter = ""; // Filtrage par titre
-  String locationFilter = ""; // Filtrage par ville
+  String titleFilter = "";
+  String locationFilter = "";
 
   @override
   void initState() {
     super.initState();
     loadAnnouncements();
+    manageLocationPermission();
+  }
+
+  Future<void> manageLocationPermission() async {
+    bool locationPermissionStatus = await checkPermissionStatus();
+    if(!locationPermissionStatus) await requestPermission();
   }
 
   Future<void> loadAnnouncements() async {
@@ -31,10 +38,10 @@ class _HomePageState extends State<HomePage> {
       List<Announcement> announcementsData = await getAllAnnoucement();
       setState(() {
         allAnnouncements = announcementsData;
-        filteredAnnouncements = allAnnouncements; // Afficher tout par défaut
+        filteredAnnouncements = allAnnouncements;
       });
     } catch (e) {
-      stderr.writeln("Erreur lors du chargement des annonces : $e");
+      print("Erreur lors du chargement des annonces : $e");
     }
   }
 
@@ -75,7 +82,6 @@ class _HomePageState extends State<HomePage> {
               }),
               const SizedBox(height: 20),
 
-              // Affichage des annonces filtrées
               Column(
                 children: filteredAnnouncements
                     .map((annonce) => Padding(
