@@ -35,7 +35,7 @@ class _GenericPage extends ConsumerState<GenericPage> {
       body: widget.child, // The main content of the page
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(70),
-          child: MainHeader(title: "title")), // Custom header for the page
+          child: MainHeader(title: "titre")), // Custom header for the page
       bottomNavigationBar: BottomAppBar(
         height: 84,
         color: ColorConstant.black,
@@ -45,12 +45,12 @@ class _GenericPage extends ConsumerState<GenericPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
-              child: NavBarLink(text: "Home", icon: Icons.home, link: "/home"),
+              child: NavBarLink(text: "Accueil", icon: Icons.home, link: "/home"),
             ),
             SizedBox(width: 40),
             SizedBox(
               child: NavBarLink(
-                  text: "Profile", icon: Icons.person, link: "/profile"),
+                  text: "Profil", icon: Icons.person, link: "/profile"),
             )
           ],
         ),
