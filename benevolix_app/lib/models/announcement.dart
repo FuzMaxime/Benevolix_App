@@ -1,7 +1,5 @@
 import 'package:benevolix_app/models/application.dart' show Application;
 import 'package:benevolix_app/models/tag.dart';
-import 'package:benevolix_app/models/user.dart';
-import 'package:benevolix_app/services/user_service.dart';
 
 class Announcement {
   final int id;
@@ -58,7 +56,7 @@ class Announcement {
       isRemote: json['is_remote'] ?? false,
       tags: listTags,
       title: json['title'] ?? '',
-      ownerId: owner['owner_id'] ?? 0,
+      ownerId: owner['id'] ?? 0,
       ownerFirstname: owner['first_name'] ?? "",
       ownerLastname: owner['last_name'] ?? "",
     );

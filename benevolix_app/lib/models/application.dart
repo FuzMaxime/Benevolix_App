@@ -1,34 +1,35 @@
+
 class Application {
-  final int id;
-  final int annoucementId;
+  final int annonceId;
   final String date;
   final String status;
+  final String uniqueConstraint;
   final int userId;
 
   Application({
-    required this.id,
-    required this.annoucementId,
+    required this.annonceId,
     required this.date,
     required this.status,
+    required this.uniqueConstraint,
     required this.userId,
   });
 
   factory Application.fromJson(Map<String, dynamic> json) {
     return Application(
-      id: json['id'] ?? 0,
-      annoucementId: json['annonce_id'] ?? 0,
+      annonceId: json['annonce_id'] ?? 0,
       date: json['date'] ?? '',
       status: json['status'] ?? '',
+      uniqueConstraint: json['uniqueConstraint'] ?? '',
       userId: json['user_id'] ?? 0,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'annonce_id': annoucementId,
+      'annonce_id': annonceId,
       'date': date,
       'status': status,
+      'uniqueConstraint': uniqueConstraint,
       'user_id': userId,
     };
   }
