@@ -17,14 +17,14 @@ class ProfilePage extends StatefulWidget {
 class ProfilePageState extends State<ProfilePage> {
   final UserService userService = UserService();
 
-  User? currentUser;
+  User? currentUser; // Holds the current user's data
 
-  Future<String?> currentUserId = getUserId();
-  String? userId;
+  Future<String?> currentUserId = getUserId(); // Retrieves the current user's ID
+  String? userId; // Stores the user ID passed as an argument
 
-  bool isEditingPersonalInfo = false;
-  bool isEditingPassword = false;
-  bool isReadOnly = false;
+  bool isEditingPersonalInfo = false; // Indicates if personal info is being edited
+  bool isEditingPassword = false; // Indicates if the password is being edited
+  bool isReadOnly = false; // Indicates if the profile is in read-only mode
 
   // ## Errors ## //
   bool errorPersonalInfo = false;
@@ -59,6 +59,7 @@ class ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  // Load user data from the service
   Future<void> _loadUserData() async {
     globalError = false;
     try {
@@ -78,7 +79,7 @@ class ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  // ## Check if the user is the current user ## //
+  // Check if the user is the current user
   Future<void> _isReadOnlyUser() async {
     final id = await currentUserId;
     if (id != null) {
@@ -90,6 +91,7 @@ class ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  // Handle editing personal information
   void handleEditPersonalInfos() async {
     setState(() {
       errorPersonalInfo = false;
@@ -128,6 +130,7 @@ class ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  // Handle canceling the edit of personal information
   void handleCandelEditPersonalInfos() {
     setState(() {
       isEditingPersonalInfo = false;
@@ -139,13 +142,14 @@ class ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  // Handle editing the password
   void handleEditPassword() async {
     if (isEditingPassword) {
       if (newPasswordController.text != confirmPasswordController.text) {
         setState(() {
           errorPassword = true;
           errorPasswordMessage =
-              "New password and confirm password fields muste be the same !";
+              "New password and confirm password fields must be the same!";
         });
         return;
       }
@@ -171,6 +175,7 @@ class ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  // Handle canceling the edit of the password
   void handleCancelEditPassword() {
     setState(() {
       isEditingPassword = false;
@@ -182,6 +187,7 @@ class ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  // Handle account deletion
   void handleDeleteAccount() {
     showDialog(
       context: context,
@@ -230,12 +236,14 @@ class ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  // Handle user logout
   void handleLogout() async {
     await logout();
     if (!mounted) return;
     Navigator.pushReplacementNamed(context, '/login');
   }
 
+  // Capitalize the first letter of a string
   String _capitalize(String text) {
     if (text.isEmpty) return text;
     return text[0].toUpperCase() + text.substring(1).toLowerCase();
@@ -243,7 +251,7 @@ class ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    // ## Error while loading user ## //
+    // Display an error message if there was an issue loading the user
     if (globalError) {
       return Scaffold(
         body: SizedBox(
@@ -271,7 +279,7 @@ class ProfilePageState extends State<ProfilePage> {
       );
     }
 
-    // ## Loading user ## //
+    // Display a loading indicator while the user data is being fetched
     if (currentUser == null) {
       return Scaffold(
         body: Center(
@@ -282,7 +290,7 @@ class ProfilePageState extends State<ProfilePage> {
       );
     }
 
-    // ## User loaded ## //
+    // Display the user profile once the data is loaded
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -290,7 +298,7 @@ class ProfilePageState extends State<ProfilePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // ## Header ## //
+              // Header with user profile picture and name
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -337,7 +345,7 @@ class ProfilePageState extends State<ProfilePage> {
 
               SizedBox(height: 20),
 
-              // ## Personal Information Section ## //
+              // Personal Information Section
               ProfileSection(
                 title: "Personal Information",
                 isEditing: isEditingPersonalInfo,
@@ -446,7 +454,7 @@ class ProfilePageState extends State<ProfilePage> {
 
               SizedBox(height: 20),
 
-              // ## Change Password Section ## //
+              // Change Password Section
               isReadOnly
                   ? Container()
                   : ProfileSection(
@@ -517,7 +525,7 @@ class ProfilePageState extends State<ProfilePage> {
 
               SizedBox(height: 20),
 
-              // ## Account Actions ## //
+              // Account Actions
               isReadOnly
                   ? Container()
                   : Container(
