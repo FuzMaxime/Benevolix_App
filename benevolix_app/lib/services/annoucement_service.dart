@@ -29,10 +29,23 @@ Future<List<Announcement>> getAllAnnoucement() async {
   }
 }
 
+Future<Announcement?> getAnnouncementById(int id) async {
+  final token = await getToken();
+  if (token == null) return null;
 
+  final response = await http.get(
+    Uri.parse("$apiUrl/annonces/$id"),
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer $token",
+    },
+  );
 
-
-
-
-
-
+  if (response.statusCode == 200) {
+    final data = jsonDecode(utf8.decode(response.bodyBytes));
+    Announcement announcement = Announcement.fromJson(data);
+    return announcement;
+  } else {
+    return null;
+  }
+}
