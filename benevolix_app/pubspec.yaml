@@ -21,6 +21,7 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   flutter_secure_storage: ^9.2.4
   intl: ^0.20.2
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -53,4 +54,12 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
+
+flutter_launcher_icons:
+    android: "launcher_icon"
+    ios: true
+    image_path: "assets/images/benevolix_icon.png"
+    min_sdk_version: 21
+
+
 

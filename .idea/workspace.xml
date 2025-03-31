@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79fc051b-9599-498a-8404-4edc076389b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/benevolix_app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/benevolix_app/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/benevolix_app/windows/flutter/generated_plugins.cmake" afterDir="false" />
-    </list>
+    <list default="true" id="79fc051b-9599-498a-8404-4edc076389b9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,9 +33,9 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feature/profile__page",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/chaff/OneDrive/Documents/Ynov/Projets/Flutter/Benevolix_App",
+    "last_opened_file_path": "C:/Users/chaff/OneDrive/Documents/Ynov/Projets/Flutter/Benevolix_App/benevolix_app",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
