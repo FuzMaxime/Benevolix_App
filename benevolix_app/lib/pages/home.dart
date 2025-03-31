@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
         filteredAnnouncements = allAnnouncements;
       });
     } catch (e) {
-      stderr.writeln("Erreur lors du chargement des annonces : $e");
+      print("Erreur lors du chargement des annonces : $e");
     }
   }
 

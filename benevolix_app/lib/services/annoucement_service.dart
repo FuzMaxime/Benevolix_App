@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/auth.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-final String apiUrl = dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1";
+final String apiUrl = "http://localhost:8080/api/v1";
 
 Future<List<Announcement>> getAllAnnoucement() async {
   final token = await getToken();

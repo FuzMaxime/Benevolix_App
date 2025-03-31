@@ -1,5 +1,6 @@
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
+import 'package:benevolix_app/widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
 
 class AnnouncementDetails extends StatelessWidget {
@@ -17,9 +18,15 @@ class AnnouncementDetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             // Header
-            Row(
+            Row( spacing: 15,
               children: [
+                ProfilePicture(
+                  id: announcement.ownerId.toString(), 
+                  firstName : announcement.ownerFirstname, 
+                  lastName : announcement.ownerLastname, 
+                  size : AvatarSize.small),
                 Expanded(
                   child: Text(
                     announcement.title,
