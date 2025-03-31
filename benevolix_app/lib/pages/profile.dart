@@ -149,7 +149,7 @@ class ProfilePageState extends State<ProfilePage> {
         setState(() {
           errorPassword = true;
           errorPasswordMessage =
-              "New password and confirm password fields must be the same!";
+              "Les champs de nouveau mot de passe et de confirmation doivent être identiques !";
         });
         return;
       }
@@ -193,14 +193,14 @@ class ProfilePageState extends State<ProfilePage> {
       context: context,
       builder: (BuildContext dialogContext) {
         return AlertDialog(
-          title: Text("Delete Account"),
-          content: Text("Are you sure you want to delete your account?"),
+          title: Text("Supprimer le compte"),
+          content: Text("Êtes-vous sûr de vouloir supprimer votre compte ?"),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("Cancel"),
+              child: Text("Annuler"),
             ),
             TextButton(
               onPressed: () async {
@@ -214,7 +214,7 @@ class ProfilePageState extends State<ProfilePage> {
                   } else {
                     setState(() {
                       globalError = true;
-                      globalErrorMessage = "Error deleting account";
+                      globalErrorMessage = "Erreur lors de la suppression du compte";
                     });
                   }
                 } catch (e) {
@@ -222,13 +222,13 @@ class ProfilePageState extends State<ProfilePage> {
                   Navigator.of(context).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text("Error deleting account: $e"),
+                      content: Text("Erreur lors de la suppression du compte : $e"),
                       backgroundColor: ColorConstant.red,
                     ),
                   );
                 }
               },
-              child: Text("Delete"),
+              child: Text("Supprimer"),
             ),
           ],
         );
@@ -260,7 +260,7 @@ class ProfilePageState extends State<ProfilePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Error: $globalErrorMessage"),
+                Text("Erreur : $globalErrorMessage"),
                 SizedBox(height: 20),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -269,7 +269,7 @@ class ProfilePageState extends State<ProfilePage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Go back",
+                  child: Text("Retour",
                       style: TextStyle(color: ColorConstant.white)),
                 ),
               ],
@@ -347,7 +347,7 @@ class ProfilePageState extends State<ProfilePage> {
 
               // Personal Information Section
               ProfileSection(
-                title: "Personal Information",
+                title: "Informations Personnelles",
                 isEditing: isEditingPersonalInfo,
                 isReadOnly: isReadOnly,
                 onEdit: () => setState(() => isEditingPersonalInfo = true),
@@ -360,18 +360,18 @@ class ProfilePageState extends State<ProfilePage> {
                             children: [
                               Expanded(
                                 child: ProfileInput(
-                                  label: "First Name:",
+                                  label: "Prénom :",
                                   controller: firstnameController,
-                                  hintText: "First name",
+                                  hintText: "Prénom",
                                   error: errorPersonalInfo,
                                 ),
                               ),
                               SizedBox(width: 10),
                               Expanded(
                                 child: ProfileInput(
-                                  label: "Last Name:",
+                                  label: "Nom :",
                                   controller: lastnameController,
-                                  hintText: "Last name",
+                                  hintText: "Nom",
                                   error: errorPersonalInfo,
                                 ),
                               ),
@@ -379,7 +379,7 @@ class ProfilePageState extends State<ProfilePage> {
                           ),
                           SizedBox(height: 10),
                           ProfileInput(
-                            label: "Email:",
+                            label: "Email :",
                             controller: emailController,
                             hintText: "Email",
                             error: errorPersonalInfo,
@@ -408,7 +408,7 @@ class ProfilePageState extends State<ProfilePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "First Name: ",
+                                      "Prénom : ",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600),
                                     ),
@@ -425,7 +425,7 @@ class ProfilePageState extends State<ProfilePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Last Name: ",
+                                      "Nom : ",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w600),
                                     ),
@@ -441,7 +441,7 @@ class ProfilePageState extends State<ProfilePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Email: ",
+                                "Email : ",
                                 style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                               SizedBox(height: 5),
@@ -458,7 +458,7 @@ class ProfilePageState extends State<ProfilePage> {
               isReadOnly
                   ? Container()
                   : ProfileSection(
-                      title: "Change Password",
+                      title: "Changer le Mot de Passe",
                       isEditing: isEditingPassword,
                       isReadOnly: isReadOnly,
                       onEdit: () => setState(() => isEditingPassword = true),
@@ -471,9 +471,9 @@ class ProfilePageState extends State<ProfilePage> {
                                   children: [
                                     Expanded(
                                       child: ProfileInput(
-                                        label: "Current Password:",
+                                        label: "Mot de Passe Actuel :",
                                         controller: currentPasswordController,
-                                        hintText: "Current password",
+                                        hintText: "Mot de passe actuel",
                                         isPassword: true,
                                         error: errorPassword,
                                       ),
@@ -481,9 +481,9 @@ class ProfilePageState extends State<ProfilePage> {
                                     SizedBox(width: 10),
                                     Expanded(
                                       child: ProfileInput(
-                                        label: "New Password:",
+                                        label: "Nouveau Mot de Passe :",
                                         controller: newPasswordController,
-                                        hintText: "New password",
+                                        hintText: "Nouveau mot de passe",
                                         isPassword: true,
                                         error: errorPassword,
                                       ),
@@ -492,9 +492,9 @@ class ProfilePageState extends State<ProfilePage> {
                                 ),
                                 SizedBox(height: 10),
                                 ProfileInput(
-                                  label: "Confirm New Password:",
+                                  label: "Confirmer le Nouveau Mot de Passe :",
                                   controller: confirmPasswordController,
-                                  hintText: "Confirm New password",
+                                  hintText: "Confirmer le nouveau mot de passe",
                                   isPassword: true,
                                   error: errorPassword,
                                 ),
@@ -514,7 +514,7 @@ class ProfilePageState extends State<ProfilePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Current Password: ",
+                                  "Mot de Passe Actuel : ",
                                   style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
                                 SizedBox(height: 5),
@@ -540,7 +540,7 @@ class ProfilePageState extends State<ProfilePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Account",
+                            "Compte",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
@@ -560,7 +560,7 @@ class ProfilePageState extends State<ProfilePage> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Delete Account",
+                                  "Supprimer le Compte",
                                   style: TextStyle(
                                     color: ColorConstant.red,
                                   ),
@@ -580,7 +580,7 @@ class ProfilePageState extends State<ProfilePage> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Log out",
+                                  "Se déconnecter",
                                   style: TextStyle(
                                     color: ColorConstant.lightGrey,
                                   ),
