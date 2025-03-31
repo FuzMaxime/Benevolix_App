@@ -4,10 +4,15 @@ import 'package:benevolix_app/pages/login.dart';
 import 'package:benevolix_app/pages/profile.dart';
 import 'package:benevolix_app/pages/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'pages/home.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env").catchError((error) {
+    print("Erreur de chargement du fichier .env : $error");
+  });
   runApp(
     const ProviderScope(
       child: MyApp(),

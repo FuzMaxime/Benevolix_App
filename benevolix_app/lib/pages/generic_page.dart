@@ -17,7 +17,8 @@ class _GenericPage extends ConsumerState<GenericPage> {
   void _showSlideUpView() {
     showModalBottomSheet(
         context: context,
-        isScrollControlled: true, // Permet un affichage complet
+        isScrollControlled: true,
+        // Permet un affichage complet
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
@@ -40,15 +41,14 @@ class _GenericPage extends ConsumerState<GenericPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            NavBarLink(
-                text: "Home",
-                imageLink: 'assets/images/home_icon.png',
-                link: "/home"),
+            SizedBox(
+              child: NavBarLink(text: "Home", icon: Icons.home, link: "/home"),
+            ),
             SizedBox(width: 40),
-            NavBarLink(
-                text: "Profile",
-                imageLink: 'assets/images/user_icon.png',
-                link: "/profile"),
+            SizedBox(
+              child: NavBarLink(
+                  text: "Profile", icon: Icons.person, link: "/profile"),
+            )
           ],
         ),
       ),
@@ -65,28 +65,29 @@ class _GenericPage extends ConsumerState<GenericPage> {
 class NavBarLink extends StatelessWidget {
   final String text;
   final String link;
-  final String imageLink;
+  final IconData icon;
 
   const NavBarLink(
-      {super.key,
-      required this.text,
-      required this.imageLink,
-      required this.link});
+      {super.key, required this.text, required this.icon, required this.link});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        IconButton(
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, link);
-            },
-            icon: Image.asset(imageLink)),
-        Text(
-          text,
-          style: TextStyle(color: ColorConstant.white),
-        )
-      ],
+    return TextButton(
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, link);
+      },
+      style: TextButton.styleFrom(
+        foregroundColor: ColorConstant.white,
+        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: ColorConstant.white,),
+          SizedBox(height: 4),
+          Text(text, style: TextStyle(color: ColorConstant.white)),
+        ],
+      ),
     );
   }
 }

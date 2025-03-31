@@ -2,10 +2,11 @@ import 'dart:convert';
 
 import 'package:benevolix_app/models/tag.dart';
 import 'package:benevolix_app/utils/formatUtils.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'auth.dart';
 
-final String apiUrl = "http://localhost:8080/api/v1";
+final String apiUrl = dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1";
 
 Future<Tag?> addTag(String tagName) async {
   final token = await getToken();
