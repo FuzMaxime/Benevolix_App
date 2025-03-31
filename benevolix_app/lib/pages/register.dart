@@ -46,7 +46,7 @@ class _RegisterState extends State<RegisterPage> {
     } else {
       // Display an error message if registration fails
       setState(() {
-        errorMessage = "Registration failed. Please try again.";
+        errorMessage = "L'inscription a échoué. Veuillez réessayer.";
       });
     }
   }
@@ -60,7 +60,7 @@ class _RegisterState extends State<RegisterPage> {
           child: Column(
             spacing: 50.0,
             children: [
-              HeaderAuth(title: "Create an Account"), // Header for the registration page
+              HeaderAuth(title: "Créer un Compte"), // Header for the registration page
               Column(
                 spacing: 30.0,
                 children: [
@@ -72,26 +72,26 @@ class _RegisterState extends State<RegisterPage> {
                       Expanded(
                         child: TextField(
                           controller: firstNameController,
-                          decoration: getInputDecoration('First name'),
+                          decoration: getInputDecoration('Prénom'),
                         ),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
                         child: TextField(
                           controller: lastNameController,
-                          decoration: getInputDecoration('Last name'),
+                          decoration: getInputDecoration('Nom'),
                         ),
                       ),
                     ],
                   ),
                   TextField(
                     controller: phoneController,
-                    decoration: getInputDecoration('Phone number'),
+                    decoration: getInputDecoration('Numéro de téléphone'),
                   ),
                   TextField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: getInputDecoration('Password'),
+                    decoration: getInputDecoration('Mot de passe'),
                   ),
                   if (errorMessage != null)
                     Text(
@@ -99,7 +99,7 @@ class _RegisterState extends State<RegisterPage> {
                       style: const TextStyle(color: Colors.red),
                     ),
                   SubmitButton(
-                      text: 'Register',
+                      text: 'S\'inscrire',
                       onPressed: _handleRegister,
                       isLoading: isLoading), // Button to initiate the registration process
                   Container(
@@ -107,12 +107,12 @@ class _RegisterState extends State<RegisterPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Already have an account?"),
+                        const Text("Vous avez déjà un compte ?"),
                         TextButton(
                           onPressed: () {
                             Navigator.pushNamed(context, '/login'); // Navigate to the login page
                           },
-                          child: Text("Login",
+                          child: Text("Se connecter",
                               style: TextStyle(color: ColorConstant.red)),
                         ),
                       ],
