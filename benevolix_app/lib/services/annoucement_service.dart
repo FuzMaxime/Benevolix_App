@@ -2,15 +2,16 @@ import 'dart:convert';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/auth.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-final String apiUrl = "http://localhost:8080/api/v1";
+final String baseUrl = "${dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1"}/annonces";
 
 Future<List<Announcement>> getAllAnnoucement() async {
   final token = await getToken();
   if (token == null) return [];
 
   final response = await http.get(
-    Uri.parse("$apiUrl/annonces"),
+    Uri.parse(baseUrl),
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer $token",
@@ -34,7 +35,7 @@ Future<Announcement?> getAnnouncementById(int id) async {
   if (token == null) return null;
 
   final response = await http.get(
-    Uri.parse("$apiUrl/annonces/$id"),
+    Uri.parse("$baseUrl/$id"),
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer $token",

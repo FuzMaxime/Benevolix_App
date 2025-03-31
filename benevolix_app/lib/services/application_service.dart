@@ -2,8 +2,9 @@ import 'dart:convert';
 import 'package:benevolix_app/services/auth.dart';
 import 'package:benevolix_app/models/application.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-final String apiUrl = "http://localhost:8080/api/v1";
+final String baseUrl = "${dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1"}/candidatures";
 
 Future<Application?> createApplication(
     int annonceId,
@@ -13,7 +14,7 @@ Future<Application?> createApplication(
   final token = await getToken();
 
   final response = await http.post(
-    Uri.parse("$apiUrl/candidatures"),
+    Uri.parse(baseUrl),
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer $token",
@@ -32,5 +33,4 @@ Future<Application?> createApplication(
   } else {
     return jsonDecode(response.body);
   }
-  return null;
 }
