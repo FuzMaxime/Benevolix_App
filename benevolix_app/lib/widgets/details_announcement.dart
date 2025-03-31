@@ -4,7 +4,7 @@ import 'package:benevolix_app/models/announcement.dart';
 import 'package:intl/intl.dart';
 import 'package:benevolix_app/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
-import 'package:benevolix_app/services/candidature_service.dart';
+import 'package:benevolix_app/services/application_service.dart';
 import 'package:benevolix_app/widgets/profile_picture.dart';
 import 'package:benevolix_app/services/auth.dart';
 
@@ -155,7 +155,7 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
                     String? userId = await currentUserId;
                     if (userId != null) {
                       int parsedId = int.parse(userId.trim());
-                      await createCandidature(
+                      await createApplication(
                         announcement.id,
                         DateTime.now(),
                         "Waiting",

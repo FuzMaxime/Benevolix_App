@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:benevolix_app/services/auth.dart';
-import 'package:benevolix_app/models/candidature.dart';
+import 'package:benevolix_app/models/application.dart';
 import 'package:http/http.dart' as http;
 
 final String apiUrl = "http://localhost:8080/api/v1";
 
-Future<Candidature?> createCandidature(
+Future<Application?> createApplication(
     int annonceId,
     DateTime date,
     String status,
@@ -28,7 +28,7 @@ Future<Candidature?> createCandidature(
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body);
-    return Candidature.fromJson(data);
+    return Application.fromJson(data);
   } else {
     return jsonDecode(response.body);
   }

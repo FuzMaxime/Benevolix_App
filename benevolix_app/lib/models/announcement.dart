@@ -1,7 +1,5 @@
 import 'package:benevolix_app/models/application.dart' show Application;
 import 'package:benevolix_app/models/tag.dart';
-import 'package:benevolix_app/models/user.dart';
-import 'package:benevolix_app/services/user_service.dart';
 
 class Announcement {
   final int id;
