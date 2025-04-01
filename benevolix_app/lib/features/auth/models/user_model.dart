@@ -21,6 +21,7 @@ class User {
     this.tags,
   });
 
+  //Transformation en User
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] ?? 0,
@@ -35,6 +36,7 @@ class User {
     );
   }
 
+  //Transformation en Json
   Map<String, dynamic> toJson() {
     return {
       'first_name': firstName,
