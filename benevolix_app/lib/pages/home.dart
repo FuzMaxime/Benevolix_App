@@ -62,18 +62,22 @@ class _HomePageState extends State<HomePage> {
     filterAnnouncements();
   }
 
+  // Asynchronous method to load announcements from an external service
   Future<void> loadAnnouncements() async {
     try {
       List<Announcement> announcementsData = await getAllAnnoucement();
       setState(() {
         allAnnouncements = announcementsData;
-        filteredAnnouncements = allAnnouncements;
+
+        filteredAnnouncements = allAnnouncements; // Display all announcements by default
       });
     } catch (e) {
-      print("Erreur lors du chargement des annonces : $e");
+      // In case of an error, display an error message in the console
+      stderr.writeln("Error loading announcements: $e");
     }
   }
 
+  // Method to filter announcements based on title and location
   void filterAnnouncements() {
     setState(() {
       filteredAnnouncements = allAnnouncements.where((annonce) {
@@ -112,6 +116,7 @@ class _HomePageState extends State<HomePage> {
               }),
               const SizedBox(height: 20),
 
+              // Display the filtered announcements
               Column(
                 children: filteredAnnouncements
                     .map((annonce) => Padding(
@@ -127,6 +132,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // Method to create a label with the given text
   Widget buildLabel(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 2.0),
@@ -137,6 +143,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // Method to create a search field with a hint text and a callback function
   Widget buildSearchField(String hintText, Function(String) onChanged) {
     return TextField(
       onChanged: onChanged,
