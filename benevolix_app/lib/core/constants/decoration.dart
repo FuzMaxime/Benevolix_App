@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'color.dart';
 
+//decoration des zone d'input
 getInputDecoration(String text) {
   return InputDecoration(
       border: const OutlineInputBorder(
