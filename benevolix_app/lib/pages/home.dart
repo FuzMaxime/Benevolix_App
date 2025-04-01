@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
+import 'package:benevolix_app/services/location_service.dart';
 import 'package:flutter/material.dart';
 import '../services/permission.dart';
 import 'details_announcement.dart';
@@ -18,19 +17,49 @@ class _HomePageState extends State<HomePage> {
   List<Announcement> allAnnouncements = [];
   List<Announcement> filteredAnnouncements = [];
 
+  LocationService locationService = LocationService();
+
   String titleFilter = "";
   String locationFilter = "";
+  String? _address;
 
   @override
   void initState() {
     super.initState();
     loadAnnouncements();
-    manageLocationPermission();
+    _initializeLocation();
   }
 
-  Future<void> manageLocationPermission() async {
+
+  Future<void> _initializeLocation() async {
+    // Gérer les permissions de localisation
+    bool locationPermissionStatus = await manageLocationPermission();
+    if (locationPermissionStatus) {
+      // Récupérer l'adresse uniquement si les permissions sont accordées
+      await _fetchAddress();
+    } else {
+      setState(() {
+        _address = "Permissions de localisation refusées.";
+      });
+    }
+  }
+
+  Future<bool> manageLocationPermission() async {
     bool locationPermissionStatus = await checkPermissionStatus();
-    if(!locationPermissionStatus) await requestPermission();
+    if (!locationPermissionStatus) {
+      locationPermissionStatus = await requestPermission();
+    }
+    return locationPermissionStatus;
+  }
+
+  Future<void> _fetchAddress() async {
+    final locationService = LocationService();
+    final address = await locationService.getAddressFromLatLng();
+    setState(() {
+      _address = address;
+      locationFilter = address ?? "";
+    });
+    filterAnnouncements();
   }
 
   Future<void> loadAnnouncements() async {
@@ -64,7 +93,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               buildLabel("Quoi ?"),
               buildSearchField("Rechercher une annonce", (value) {
                 setState(() {
@@ -74,9 +103,10 @@ class _HomePageState extends State<HomePage> {
               }),
               const SizedBox(height: 5),
               buildLabel("Où ?"),
-              buildSearchField("Nantes", (value) {
+              buildSearchField( _address ?? "Ville", (value) {
                 setState(() {
                   locationFilter = value;
+                  _address = value;
                   filterAnnouncements();
                 });
               }),
