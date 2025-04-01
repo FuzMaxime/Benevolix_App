@@ -5,6 +5,7 @@ import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
 import 'package:flutter/material.dart';
+import '../services/permission.dart';
 import 'details_announcement.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,6 +26,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     loadAnnouncements(); // Load announcements when the widget is initialized
+    manageLocationPermission();
+  }
+
+  Future<void> manageLocationPermission() async {
+    bool locationPermissionStatus = await checkPermissionStatus();
+    if(!locationPermissionStatus) await requestPermission();
   }
 
   // Asynchronous method to load announcements from an external service
@@ -33,6 +40,7 @@ class _HomePageState extends State<HomePage> {
       List<Announcement> announcementsData = await getAllAnnoucement();
       setState(() {
         allAnnouncements = announcementsData;
+
         filteredAnnouncements = allAnnouncements; // Display all announcements by default
       });
     } catch (e) {

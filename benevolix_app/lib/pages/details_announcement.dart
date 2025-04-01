@@ -1,5 +1,7 @@
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
+import 'package:benevolix_app/widgets/profile_picture.dart';
+import 'package:benevolix_app/widgets/details_announcement.dart';
 import 'package:flutter/material.dart';
 
 class AnnouncementDetails extends StatelessWidget {
@@ -7,28 +9,47 @@ class AnnouncementDetails extends StatelessWidget {
 
   const AnnouncementDetails({super.key, required this.announcement});
 
+  void _showSlideUpView(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      backgroundColor: ColorConstant.black,
+      builder: (context) => DetailsAnnouncement(announcement: announcement),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header
-            Row(
+    return GestureDetector(
+      onTap: () => _showSlideUpView(context),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 4,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header
+              // Header
+            Row( spacing: 15,
               children: [
+                ProfilePicture(
+                  id: announcement.ownerId.toString(), 
+                  firstName : announcement.ownerFirstname, 
+                  lastName : announcement.ownerLastname, 
+                  size : AvatarSize.small),
                 Expanded(
                   child: Text(
                     announcement.title,
                     style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                ),
-              ],
-            ),
-            const Divider(),
+                )],
+              ),
+              const Divider(),
 
             // Info Row
             Wrap(
@@ -45,33 +66,34 @@ class AnnouncementDetails extends StatelessWidget {
             ),
             const Divider(),
 
-            // Description
-            Text(
-              announcement.description,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14, color: ColorConstant.grey),
-            ),
-            const SizedBox(height: 12),
+              // Description
+              Text(
+                announcement.description,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 14, color: ColorConstant.grey),
+              ),
+              const SizedBox(height: 12),
 
-            // Tags
-            Wrap(
-              spacing: 8,
-              runSpacing: 4,
-              children: announcement.tags.map((tag) {
-                return Chip(
-                  label: Text(
-                    tag.name,
-                    style: TextStyle(fontSize: 12, color: ColorConstant.red),
-                  ),
-                  backgroundColor: ColorConstant.lightRed,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                );
-              }).toList(),
-            ),
-          ],
+              // Tags
+              Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                children: announcement.tags.map((tag) {
+                  return Chip(
+                    label: Text(
+                      tag.name,
+                      style: TextStyle(fontSize: 12, color: ColorConstant.red),
+                    ),
+                    backgroundColor: ColorConstant.lightRed,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -88,6 +110,7 @@ class AnnouncementDetails extends StatelessWidget {
             text,
             maxLines: 1, // Limit to one line
             overflow: TextOverflow.ellipsis, // Add ellipsis if necessary
+
             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ),

@@ -1,34 +1,46 @@
+
+import 'package:benevolix_app/models/user.dart';
+
 class Application {
-  final int id;
-  final int annoucementId;
+  final int annonceId;
   final String date;
   final String status;
+  final String uniqueConstraint;
   final int userId;
+  final List<User> users;
 
   Application({
-    required this.id,
-    required this.annoucementId,
+    required this.annonceId,
     required this.date,
     required this.status,
+    required this.uniqueConstraint,
     required this.userId,
+    required this.users
   });
 
   factory Application.fromJson(Map<String, dynamic> json) {
+    List<User> listUsers = [];
+
+    if (json['user'] != null && json['user'] is List) {
+      listUsers = (json['user'] as List).map((user) => User.fromJson(user)).toList();
+    }
+
     return Application(
-      id: json['id'] ?? 0,
-      annoucementId: json['annonce_id'] ?? 0,
+      annonceId: json['annonce'] ?? 0,
       date: json['date'] ?? '',
       status: json['status'] ?? '',
-      userId: json['user_id'] ?? 0,
+      uniqueConstraint: json['uniqueConstraint'] ?? '',
+      userId: json['userid'] ?? 0,
+      users: listUsers ?? []
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'annonce_id': annoucementId,
+      'annonce_id': annonceId,
       'date': date,
       'status': status,
+      'uniqueConstraint': uniqueConstraint,
       'user_id': userId,
     };
   }

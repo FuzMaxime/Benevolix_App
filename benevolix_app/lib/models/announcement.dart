@@ -11,6 +11,9 @@ class Announcement {
   final bool isRemote;
   final List<Tag> tags;
   final String title;
+  final int ownerId;
+  final String ownerFirstname;
+  final String ownerLastname;
 
   Announcement({
     required this.id,
@@ -22,9 +25,12 @@ class Announcement {
     required this.isRemote,
     required this.tags,
     required this.title,
+    required this.ownerId,
+    required this.ownerFirstname,
+    required this.ownerLastname,
   });
 
-  factory Announcement.fromJson(Map<String, dynamic> json) {
+  factory  Announcement.fromJson(Map<String, dynamic> json) {
     List<Application> listApplications = [];
     List<Tag> listTags = [];
 
@@ -38,6 +44,8 @@ class Announcement {
       listTags = (json['tags'] as List).map((tag) => Tag.fromJson(tag)).toList();
     }
 
+    var owner = json['owner'];
+
     return Announcement(
       id: json['id'] ?? 0,
       adress: json['address'] ?? '',
@@ -48,6 +56,9 @@ class Announcement {
       isRemote: json['is_remote'] ?? false,
       tags: listTags,
       title: json['title'] ?? '',
+      ownerId: owner['id'] ?? 0,
+      ownerFirstname: owner['first_name'] ?? "",
+      ownerLastname: owner['last_name'] ?? "",
     );
   }
 
@@ -60,6 +71,7 @@ class Announcement {
       'is_remote': isRemote,
       'tags': tags,
       'title': title,
+      'owner_id' : ownerId,
     };
   }
 }
