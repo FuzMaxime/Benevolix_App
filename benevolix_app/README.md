@@ -93,21 +93,3 @@ Pour générer un fichier exécutable ou un package pour une plateforme spécifi
    ```
 
 Les fichiers générés se trouveront dans le dossier `build/`.
-
-## Contribution
-
-Les contributions sont les bienvenues ! Veuillez suivre ces étapes :
-
-1. Forkez le projet.
-2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/ma-fonctionnalite`).
-3. Commitez vos modifications (`git commit -m 'Ajout d'une nouvelle fonctionnalité'`).
-4. Poussez votre branche (`git push origin feature/ma-fonctionnalite`).
-5. Ouvrez une Pull Request.
-
-## Licence
-
-Ce projet est sous licence [insérer le type de licence, par exemple MIT].
-
----
-
-Pour toute question ou suggestion, n'hésitez pas à ouvrir une issue ou à nous contacter.
