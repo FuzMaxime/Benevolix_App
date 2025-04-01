@@ -1,0 +1,89 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+build/
+coverage/
+
+# iOS related
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Flutter/*.xcworkspace/
+ios/Flutter/*.xcodeproj/
+ios/Flutter/*.xcconfig
+ios/Flutter/Generated.xcconfig
+ios/Flutter/App.framework/
+ios/Flutter/Flutter.podspec.json
+
+# Android related
+android/.gradle/
+android/app/build/
+android/local.properties
+android/.idea/
+android/app/*.iml
+android/*.iml
+
+# VS Code related
+.vscode/
+*.code-workspace
+
+# IntelliJ related
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS related
+macos/Flutter/ephemeral/
+macos/Flutter/Flutter.podspec
+macos/Flutter/Flutter.podspec.json
+macos/Flutter/Flutter.framework/
+macos/Flutter/*.xcworkspace/
+macos/Flutter/*.xcodeproj/
+macos/Flutter/*.xcconfig
+macos/Flutter/Generated.xcconfig
+
+# Web related
+web/.dart_tool/
+web/.packages
+web/build/
+
+# Windows related
+windows/Flutter/ephemeral/
+windows/Flutter/Flutter.framework/
+windows/Flutter/Generated.xcconfig
+
+# Linux related
+linux/Flutter/ephemeral/
+linux/Flutter/Flutter.framework/
+linux/Flutter/Generated.xcconfig
+
+# Firebase related
+firebase_app_id_file.json
+
+# Environment files
+.env
+.env.*
+
+# Others
+*.log
+*.lock
+*.tmp
+*.swp
+*.DS_Store
+*.pdb
+*.dll
+*.dylib
+*.so
+*.bak
+*.old
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project

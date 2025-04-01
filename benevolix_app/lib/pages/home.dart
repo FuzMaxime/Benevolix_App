@@ -1,9 +1,7 @@
-import 'dart:io';
-
-// Import necessary files for colors, models, services, and widgets
 import 'package:benevolix_app/constants/color.dart';
 import 'package:benevolix_app/models/announcement.dart';
 import 'package:benevolix_app/services/annoucement_service.dart';
+import 'package:benevolix_app/services/location_service.dart';
 import 'package:flutter/material.dart';
 import '../services/permission.dart';
 import 'details_announcement.dart';
@@ -16,22 +14,52 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Announcement> allAnnouncements = []; // List to store all fetched announcements
-  List<Announcement> filteredAnnouncements = []; // List to store announcements after filtering
+  List<Announcement> allAnnouncements = [];
+  List<Announcement> filteredAnnouncements = [];
 
-  String titleFilter = ""; // Filter for the title of the announcements
-  String locationFilter = ""; // Filter for the location of the announcements
+  LocationService locationService = LocationService();
+
+  String titleFilter = "";
+  String locationFilter = "";
+  String? _address;
 
   @override
   void initState() {
     super.initState();
-    loadAnnouncements(); // Load announcements when the widget is initialized
-    manageLocationPermission();
+    loadAnnouncements();
+    _initializeLocation();
   }
 
-  Future<void> manageLocationPermission() async {
+
+  Future<void> _initializeLocation() async {
+    // Gérer les permissions de localisation
+    bool locationPermissionStatus = await manageLocationPermission();
+    if (locationPermissionStatus) {
+      // Récupérer l'adresse uniquement si les permissions sont accordées
+      await _fetchAddress();
+    } else {
+      setState(() {
+        _address = "Permissions de localisation refusées.";
+      });
+    }
+  }
+
+  Future<bool> manageLocationPermission() async {
     bool locationPermissionStatus = await checkPermissionStatus();
-    if(!locationPermissionStatus) await requestPermission();
+    if (!locationPermissionStatus) {
+      locationPermissionStatus = await requestPermission();
+    }
+    return locationPermissionStatus;
+  }
+
+  Future<void> _fetchAddress() async {
+    final locationService = LocationService();
+    final address = await locationService.getAddressFromLatLng();
+    setState(() {
+      _address = address;
+      locationFilter = address ?? "";
+    });
+    filterAnnouncements();
   }
 
   // Asynchronous method to load announcements from an external service
@@ -69,8 +97,8 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 50),
-              buildLabel("Quoi ?"), // Label for the title search field
+              const SizedBox(height: 30),
+              buildLabel("Quoi ?"),
               buildSearchField("Rechercher une annonce", (value) {
                 setState(() {
                   titleFilter = value;
@@ -78,10 +106,11 @@ class _HomePageState extends State<HomePage> {
                 });
               }),
               const SizedBox(height: 5),
-              buildLabel("Où ?"), // Label for the location search field
-              buildSearchField("Nantes", (value) {
+              buildLabel("Où ?"),
+              buildSearchField( _address ?? "Ville", (value) {
                 setState(() {
                   locationFilter = value;
+                  _address = value;
                   filterAnnouncements();
                 });
               }),
