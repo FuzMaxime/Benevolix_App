@@ -27,6 +27,7 @@ class AnnouncementDetails extends StatelessWidget {
     return GestureDetector(
       onTap: () => _showSlideUpView(context),
       child: Card(
+        color: ColorConstant.cardBg,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 4,
         child: Padding(
@@ -46,7 +47,7 @@ class AnnouncementDetails extends StatelessWidget {
                 Expanded(
                   child: Text(
                     announcement.title,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 )],
               ),

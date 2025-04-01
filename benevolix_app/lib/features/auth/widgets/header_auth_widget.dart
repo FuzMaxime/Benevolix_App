@@ -11,14 +11,17 @@ class HeaderAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 60.0,
+      spacing: 30.0,
       children: [
         Align(
           alignment: Alignment.topLeft,
-          child: Image.asset('assets/images/Benevolix.png', width: 250),
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset('assets/images/Benevolix.png', width: 75)
+          ),
         ),
         Column(
-          spacing: 25.0,
+          spacing: 20.0,
           children: [
             Align(
                 alignment: Alignment.topLeft,

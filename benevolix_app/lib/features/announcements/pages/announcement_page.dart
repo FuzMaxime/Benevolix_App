@@ -5,17 +5,17 @@ import 'package:benevolix_app/features/announcements/services/annoucement_servic
 import 'package:flutter/material.dart';
 import '../../../core/constants/color.dart';
 import '../../auth/services/permission_service.dart';
-import '../../announcements/widgets/details_announcement_widget.dart';
+import '../widgets/announcement_widget.dart';
 import '../../location/services/location_service.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class AnnouncementPage extends StatefulWidget {
+  const AnnouncementPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AnnouncementPage> createState() => _AnnouncementPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AnnouncementPageState extends State<AnnouncementPage> {
   List<Announcement> allAnnouncements = [];
   List<Announcement> filteredAnnouncements = [];
 
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.fromLTRB(16.0,0.0,16.0,16.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

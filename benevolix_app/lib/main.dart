@@ -6,7 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/constants/color.dart';
 import 'core/widgets/generic_page_widget.dart';
-import 'features/home/pages/home_page.dart';
+import 'features/announcements/pages/announcement_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
-        '/home': (context) => GenericPage(HomePage()),
+        '/home': (context) => GenericPage(AnnouncementPage()),
         '/profile': (context) => GenericPage(ProfilePage())
       },
       theme: ThemeData(

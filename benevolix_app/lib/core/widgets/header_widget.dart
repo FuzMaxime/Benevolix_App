@@ -23,26 +23,32 @@ class MainHeader extends StatelessWidget {
           final user = snapshot.data!;
           return Container(
             decoration: BoxDecoration(color: ColorConstant.black),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
+            child: Column(
+              spacing: 12,
               children: [
-                const SizedBox(width: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset(
-                    'assets/images/Benevolix.png',
-                    width: 50,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Text(
-                  "${user.firstName} ${user.lastName}",
-                  style: TextStyle(
-                    color: ColorConstant.white,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Poppins",
-                    fontSize: 20,
-                  ),
+                SizedBox(height: 30,),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const SizedBox(width: 10),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Image.asset(
+                        'assets/images/Benevolix.png',
+                        width: 50,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Text(
+                      "${user.firstName} ${user.lastName}",
+                      style: TextStyle(
+                        color: ColorConstant.white,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "Poppins",
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

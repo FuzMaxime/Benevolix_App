@@ -11,7 +11,7 @@ import '../../candidacies/services/candidacy_service.dart';
 class DetailsAnnouncement extends StatefulWidget {
   final Announcement announcement;
 
-  const DetailsAnnouncement({Key? key, required this.announcement}) : super(key: key);
+  const DetailsAnnouncement({super.key, required this.announcement});
 
   @override
   _DetailsAnnouncementState createState() => _DetailsAnnouncementState();
@@ -150,6 +150,7 @@ class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
               spacing: 8,
               children:  announcement.application.map((application) => Chip(
                 label: ProfilePicture(
+                  id: application.annonceId.toString(),
                   firstName: "U",
                   lastName: application.annonceId.toString(),
                   size: AvatarSize.small,

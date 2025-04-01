@@ -59,15 +59,17 @@ class _RegisterState extends State<RegisterPage> {
         padding: const EdgeInsets.all(25.0),
         child: Center(
           child: Column(
-            spacing: 50.0,
+            spacing: 25.0,
             children: [
-              HeaderAuth(title: "Créer un Compte"), // Header for the registration page
+              HeaderAuth(
+                  title: "Créer un Compte"), // Header for the registration page
               Column(
-                spacing: 30.0,
+                spacing: 20.0,
                 children: [
                   TextField(
                       controller: emailController,
-                      decoration: getInputDecoration('Email')), // Input field for email
+                      decoration:
+                          getInputDecoration('Email')), // Input field for email
                   Row(
                     children: [
                       Expanded(
@@ -102,19 +104,24 @@ class _RegisterState extends State<RegisterPage> {
                   SubmitButton(
                       text: 'S\'inscrire',
                       onPressed: _handleRegister,
-                      isLoading: isLoading), // Button to initiate the registration process
-                  Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      isLoading:
+                          isLoading), // Button to initiate the registration process
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width *
+                        1, // 90% de la largeur de l'écran
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 0,
                       children: [
-                        const Text("Vous avez déjà un compte ?"),
+                        Text("Vous avez déjà un compte ?"),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/login'); // Navigate to the login page
+                            Navigator.pushNamed(context, '/login');
                           },
-                          child: Text("Se connecter",
-                              style: TextStyle(color: ColorConstant.red)),
+                          child: Text(
+                            "Se connecter",
+                            style: TextStyle(color: ColorConstant.red),
+                          ),
                         ),
                       ],
                     ),

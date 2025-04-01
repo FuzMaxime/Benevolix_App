@@ -25,6 +25,7 @@ class ProfileSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border.all(color: ColorConstant.lightGrey, width: 2),
@@ -39,17 +40,20 @@ class ProfileSection extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               isReadOnly
                   ? Container()
                   : isEditing
                       ? Row(
                           children: [
-                            IconButton(
-                              onPressed: onCancel,
-                              icon: Icon(Icons.close,
-                                  color: Colors.black, size: 25),
+                            SizedBox(
+                              width: 32,
+                              child: IconButton(
+                                onPressed: onCancel,
+                                icon: Icon(Icons.close,
+                                    color: Colors.black, size: 25),
+                              ),
                             ),
                             IconButton(
                               onPressed: onSave,

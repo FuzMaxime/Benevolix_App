@@ -9,6 +9,7 @@ class ColorConstant {
   static Color grey = hexToColor("#595959");
   static Color lightGrey = hexToColor("#A8AAB6");
   static Color white = hexToColor("#fffefb");
+  static Color cardBg = hexToColor("#F3F3F7");
 }
 
 Color hexToColor(String hex) {

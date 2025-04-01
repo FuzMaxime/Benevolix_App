@@ -51,7 +51,7 @@ class _LoginState extends State<LoginPage> {
             children: [
               HeaderAuth(title: "Content de vous revoir !"),
               Column(
-                spacing: 35.0,
+                spacing: 25.0,
                 children: [
                   TextField(
                     controller: emailController,

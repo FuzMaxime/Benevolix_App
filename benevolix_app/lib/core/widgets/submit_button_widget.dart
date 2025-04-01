@@ -24,14 +24,20 @@ class _SubmitButtonState extends State<SubmitButton> {
       onPressed: () => widget.onPressed.call(),
       style: ElevatedButton.styleFrom(
         backgroundColor: ColorConstant.red,
-        fixedSize: Size(400, 50),
+        fixedSize: Size(400, 55),
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
       child: widget.isLoading
-          ? CircularProgressIndicator(color: ColorConstant.white)
+          ? SizedBox(
+            width: 20,
+            height: 20,
+            child: Center(
+                child: CircularProgressIndicator(color: ColorConstant.white ),
+            ),
+          )
           : Text(widget.text,
               style: TextStyle(
                   fontSize: 18,

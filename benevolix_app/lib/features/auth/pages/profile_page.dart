@@ -528,69 +528,74 @@ class ProfilePageState extends State<ProfilePage> {
               // Account Actions
               isReadOnly
                   ? Container()
-                  : Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: ColorConstant.lightGrey, width: 2),
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(10),
+                  : SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: ColorConstant.lightGrey, width: 2),
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Compte",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 15),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ElevatedButton(
+                                  onPressed: handleDeleteAccount,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.transparent,
+                                    side: BorderSide(
+                                        color: ColorConstant.lightGrey),
+                                    shadowColor: Colors.transparent,
+                                    minimumSize: Size(100, 35),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Supprimer le Compte",
+                                    style: TextStyle(
+                                      color: ColorConstant.red,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 20),
+                                ElevatedButton(
+                                  onPressed: handleLogout,
+                                  style: ElevatedButton.styleFrom(
+                                    shadowColor: Colors.transparent,
+                                    backgroundColor: Colors.transparent,
+                                    side: BorderSide(
+                                        color: ColorConstant.lightGrey),
+                                    minimumSize: Size(100, 35),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Se déconnecter",
+                                    style: TextStyle(
+                                      color: ColorConstant.lightGrey,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Compte",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 15),
-                          Row(
-                            children: [
-                              ElevatedButton(
-                                onPressed: handleDeleteAccount,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.transparent,
-                                  side: BorderSide(
-                                      color: ColorConstant.lightGrey),
-                                  shadowColor: Colors.transparent,
-                                  minimumSize: Size(100, 35),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Supprimer le Compte",
-                                  style: TextStyle(
-                                    color: ColorConstant.red,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 20),
-                              ElevatedButton(
-                                onPressed: handleLogout,
-                                style: ElevatedButton.styleFrom(
-                                  shadowColor: Colors.transparent,
-                                  backgroundColor: Colors.transparent,
-                                  side: BorderSide(
-                                      color: ColorConstant.lightGrey),
-                                  minimumSize: Size(100, 35),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Se déconnecter",
-                                  style: TextStyle(
-                                    color: ColorConstant.lightGrey,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                  ),
             ],
           ),
         ),
