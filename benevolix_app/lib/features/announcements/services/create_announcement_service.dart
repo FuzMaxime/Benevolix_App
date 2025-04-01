@@ -8,6 +8,7 @@ import '../../auth/services/auth_service.dart';
 
 final String apiUrl = dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1";
 
+//Ajout d'un tag
 Future<Tag?> addTag(String tagName) async {
   final token = await getToken();
 
@@ -45,6 +46,7 @@ Future<Tag?> addTag(String tagName) async {
   return null;
 }
 
+//Création d'une annonces
 Future<int?> createAnnouncement(
     String title,
     String description,

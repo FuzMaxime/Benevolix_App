@@ -39,7 +39,8 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
       selectedDate = pickedDate ?? selectedDate;
     });
   }
-
+  
+  //Gestion du bouton ajout des tags
   void _handleAddTag() async {
     if (tagController.text.isEmpty) {
       return;
@@ -62,6 +63,8 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
       isTagLoading = false;
     });
   }
+
+ //Gestion du bouton création de l'annonce
   void _handleCreateAnnouncement() async{
     setState(() {
       isTagLoading = true;
@@ -317,6 +320,7 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
   }
 }
 
+//decoration des inputs
 _getInputDecoration(String placeholder) {
   return InputDecoration(
       border: const OutlineInputBorder(
@@ -327,6 +331,7 @@ _getInputDecoration(String placeholder) {
       hintText: placeholder);
 }
 
+//décoration des input avec icon
 _getInputWithIconDecoration(String placeholder, String iconPath) {
   return InputDecoration(
     border: const OutlineInputBorder(
@@ -346,6 +351,7 @@ _getInputWithIconDecoration(String placeholder, String iconPath) {
   );
 }
 
+// decoration des inputs de texte
 _getTextInputStyle() {
   return TextStyle(color: ColorConstant.white, fontSize: 18);
 }

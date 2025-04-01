@@ -6,7 +6,7 @@ class Tag {
     this.id,
     required this.name,
   });
-
+  //Transformation en Tag
   factory Tag.fromJson(Map<String, dynamic> json) {
     return Tag(
       id: json['id'],
@@ -14,6 +14,7 @@ class Tag {
     );
   }
 
+  //Transformation en Json
   Map<String, dynamic> toJson() {
     return {
       'id': id,
