@@ -59,10 +59,10 @@ class AnnouncementDetails extends StatelessWidget {
               children: [
                 _infoItem(Icons.location_on, announcement.adress), // Location icon and address
                 _infoItem(Icons.calendar_today, announcement.date), // Calendar icon and date
-                _infoItem(Icons.access_time, "${announcement.duration} days"), // Duration icon and duration
+                _infoItem(Icons.access_time, "${announcement.duration} Heures"), // Duration icon and duration
                 _infoItem(
                     announcement.isRemote ? Icons.laptop_mac : Icons.business,
-                    announcement.isRemote ? "Remote" : "In-person"), // Remote or in-person icon and text
+                    announcement.isRemote ? "Distanciel" : "Présentiel"), // Remote or in-person icon and text
               ],
             ),
             const Divider(),

@@ -188,7 +188,7 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Durée (en min)",
+                                  "Durée (heure)",
                                   style: TextStyle(color: ColorConstant.red),
                                 ),
                                 SizedBox(
