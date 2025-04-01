@@ -79,7 +79,7 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
   Widget build(BuildContext context) {
     return Container(
         height: MediaQuery.of(context).size.height * 0.8,
-        width: MediaQuery.of(context).size.width * 0.95,
+        width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Column(
@@ -163,16 +163,19 @@ class _CreateAnnouncement extends State<CreateAnnouncement> {
                                       padding: EdgeInsets.all(22.0),
                                     ),
                                     onPressed: _selectDate,
-                                    child: Row(
-                                      spacing: 20,
-                                      children: [
-                                        Image.asset(
-                                            "assets/images/date_icon.png"),
-                                        Text(
-                                          '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}',
-                                          style: _getTextInputStyle(),
-                                        )
-                                      ],
+                                    child: SizedBox(
+                                      height: 20,
+                                      child:  Row(
+                                          spacing: 20,
+                                          children: [
+                                          Image.asset(
+                                          "assets/images/date_icon.png"),
+                                      Text(
+                                        '${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}',
+                                        style: _getTextInputStyle(),
+                                      )
+                                      ,
+                                    ]),
                                     ))
                               ])),
                       SizedBox(
