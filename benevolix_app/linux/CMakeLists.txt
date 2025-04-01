@@ -2,10 +2,10 @@
 cmake_minimum_required(VERSION 3.13)
 project(runner LANGUAGES CXX)
 
-# The name of the executable created for the application. Change this to change
-# the on-disk name of your application.
+# The name of the executable created for the candidacy. Change this to change
+# the on-disk name of your candidacy.
 set(BINARY_NAME "benevolix_app")
-# The unique GTK application identifier for this application. See:
+# The unique GTK candidacy identifier for this candidacy. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
 set(APPLICATION_ID "com.example.benevolix_app")
 
@@ -71,7 +71,7 @@ set_target_properties(${BINARY_NAME}
 
 
 # Generated plugin build rules, which manage building the plugins and adding
-# them to the application.
+# them to the candidacy.
 include(flutter/generated_plugins.cmake)
 
 

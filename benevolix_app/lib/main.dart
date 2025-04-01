@@ -1,12 +1,12 @@
-import 'package:benevolix_app/constants/color.dart';
-import 'package:benevolix_app/pages/generic_page.dart';
-import 'package:benevolix_app/pages/login.dart';
-import 'package:benevolix_app/pages/profile.dart';
-import 'package:benevolix_app/pages/register.dart';
+import 'package:benevolix_app/features/auth/pages/login_page.dart';
+import 'package:benevolix_app/features/auth/pages/profile_page.dart';
+import 'package:benevolix_app/features/auth/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'pages/home.dart';
+import 'core/constants/color.dart';
+import 'core/widgets/generic_page_widget.dart';
+import 'features/home/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -5,21 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16772239-ec0f-4b77-b769-7e07acb32f4a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/services/permission.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/permission.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/constants/color.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/constants/color.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/constants/decoration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/constants/decoration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/announcement.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/models/announcement_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/application.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/candidacies/models/candidacy_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/tag.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/models/tag_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/models/user_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/announcements.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/details_announcement.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/widgets/details_announcement_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/generic_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/widgets/generic_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/home/pages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/register.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/pages/register_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/update_announcement.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/annoucement_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/services/annoucement_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/application_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/candidacies/services/candidacy_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/services/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/createAnnouncementService.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/services/create_announcement_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/location_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/location/services/location_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/permission.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/services/permission_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/user_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/services/user_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/formatUtils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/utils/format_utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/create_announcement.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/modals/create_announcement_modal.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/details_announcement.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/announcements/modals/details_announcement_modal.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/header.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/widgets/header_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/header_auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/widgets/header_auth_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/widgets/profile_input_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_picture.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/widgets/profile_picture_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/profile_section.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/auth/widgets/profile_section_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/submit_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/widgets/submit_button_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/linux/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/my_application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/my_application.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/my_application.h" beforeDir="false" afterPath="$PROJECT_DIR$/linux/my_application.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/runner/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/linux/runner/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/runner/my_application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/runner/my_application.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/runner/my_application.h" beforeDir="false" afterPath="$PROJECT_DIR$/linux/runner/my_application.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/windows/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/runner/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/windows/runner/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/runner/Runner.rc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/runner/Runner.rc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/runner/win32_window.h" beforeDir="false" afterPath="$PROJECT_DIR$/windows/runner/win32_window.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,21 +79,33 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Flutter.main.dart.executor": "Debug",
+    "Flutter.main.dart.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feature/localisation",
+    "git-widget-placeholder": "main",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Flutter/flutter/bin/cache/dart-sdk",
-    "settings.editor.selected.configurable": "dart.settings",
+    "last_opened_file_path": "C:/Users/FERRON/Documents/ynov/b3/mobile/Benevolix_App/benevolix_app",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "flutter.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\FERRON\Documents\ynov\b3\mobile\Benevolix_App\benevolix_app\lib\features\location\services" />
+      <recent name="C:\Users\FERRON\Documents\ynov\b3\mobile\Benevolix_App\benevolix_app\lib\features\announcements\widgets" />
+      <recent name="C:\Users\FERRON\Documents\ynov\b3\mobile\Benevolix_App\benevolix_app\lib\features\announcements\modals" />
+      <recent name="C:\Users\FERRON\Documents\ynov\b3\mobile\Benevolix_App\benevolix_app\lib\features\auth\widgets" />
+      <recent name="C:\Users\FERRON\Documents\ynov\b3\mobile\Benevolix_App\benevolix_app\lib\features\auth\services" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
