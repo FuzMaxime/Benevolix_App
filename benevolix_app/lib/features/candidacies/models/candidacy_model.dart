@@ -17,6 +17,7 @@ class Candidacy {
     required this.users
   });
 
+  //Transformation en Candidacy
   factory Candidacy.fromJson(Map<String, dynamic> json) {
     List<User> listUsers = [];
 
@@ -34,6 +35,7 @@ class Candidacy {
     );
   }
 
+  //Transformation en Json
   Map<String, dynamic> toJson() {
     return {
       'annonce_id': annonceId,

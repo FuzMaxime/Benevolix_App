@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final String baseUrl = "${dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1"}/annonces";
 
+//Récupérer toutes les annonces
 Future<List<Announcement>> getAllAnnoucement() async {
   final token = await getToken();
   if (token == null) return [];
@@ -29,6 +30,7 @@ Future<List<Announcement>> getAllAnnoucement() async {
   }
 }
 
+//Récupérer une annonce par son Id
 Future<Announcement?> getAnnouncementById(int id) async {
   final token = await getToken();
   if (token == null) return null;

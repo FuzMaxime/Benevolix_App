@@ -27,6 +27,7 @@ class LocationService {
     return true;
   }
 
+  //Récupération de la position actuelle de l'utilisateur
   Future<Position?> _getCurrentPosition() async {
     final hasPermission = await _handleLocationPermission();
     if (!hasPermission) return null;
@@ -37,6 +38,7 @@ class LocationService {
     );
   }
 
+  //Transformation en adresse utilisable par le front
   Future<String?> getAddressFromLatLng() async {
     try {
       final position = await _getCurrentPosition();
