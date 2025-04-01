@@ -51,21 +51,20 @@ class AnnouncementDetails extends StatelessWidget {
               ),
               const Divider(),
 
-              // Info Row
-              Wrap(
-                spacing: 8.0,
-                runSpacing: 4.0,
-                children: [
-                  _infoItem(Icons.location_on, announcement.adress),
-                  _infoItem(Icons.calendar_today, announcement.date),
-                  _infoItem(Icons.access_time, "${announcement.duration} jours"),
-                  _infoItem(
+            // Info Row
+            Wrap(
+              spacing: 8.0, // Horizontal spacing
+              runSpacing: 4.0, // Vertical spacing
+              children: [
+                _infoItem(Icons.location_on, announcement.adress), // Location icon and address
+                _infoItem(Icons.calendar_today, announcement.date), // Calendar icon and date
+                _infoItem(Icons.access_time, "${announcement.duration} days"), // Duration icon and duration
+                _infoItem(
                     announcement.isRemote ? Icons.laptop_mac : Icons.business,
-                    announcement.isRemote ? "À distance" : "Présentiel",
-                  ),
-                ],
-              ),
-              const Divider(),
+                    announcement.isRemote ? "Remote" : "In-person"), // Remote or in-person icon and text
+              ],
+            ),
+            const Divider(),
 
               // Description
               Text(
@@ -100,6 +99,7 @@ class AnnouncementDetails extends StatelessWidget {
     );
   }
 
+  // Helper method to create an info item with an icon and text
   Widget _infoItem(IconData icon, String text) {
     return Row(
       children: [
@@ -108,8 +108,9 @@ class AnnouncementDetails extends StatelessWidget {
         Expanded(
           child: Text(
             text,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+            maxLines: 1, // Limit to one line
+            overflow: TextOverflow.ellipsis, // Add ellipsis if necessary
+
             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ),
