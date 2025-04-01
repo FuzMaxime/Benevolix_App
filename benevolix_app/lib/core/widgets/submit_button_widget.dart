@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/color.dart';
 
+//Widget des boutons de submit pour une uniformisation globale
 class SubmitButton extends StatefulWidget {
   final String text;
   final Function onPressed;
