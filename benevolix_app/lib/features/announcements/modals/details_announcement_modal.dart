@@ -17,6 +17,7 @@ class DetailsAnnouncement extends StatefulWidget {
   _DetailsAnnouncementState createState() => _DetailsAnnouncementState();
 }
 
+//Page des détails d'une annonce - prend une annonce en entrée
 class _DetailsAnnouncementState extends State<DetailsAnnouncement> {
   bool isLoading = false;
   late Announcement announcement;

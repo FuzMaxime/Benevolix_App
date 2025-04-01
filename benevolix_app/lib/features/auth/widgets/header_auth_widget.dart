@@ -35,7 +35,7 @@ class HeaderAuth extends StatelessWidget {
                   ),
                 )),
             Text(
-              "Ti brudet prenañ doñv c’hoari poull mat paeañ Brasparz kribañ e daouarn  goleiñ zo",
+              "Bienvenue sur l'application de bénévolat entre gaulois",
               style: TextStyle(
                 color: ColorConstant.grey,
                 fontWeight: FontWeight.w400,

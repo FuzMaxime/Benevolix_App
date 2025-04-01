@@ -30,6 +30,7 @@ class Announcement {
     required this.ownerLastname,
   });
 
+  //transformation en Announcement
   factory  Announcement.fromJson(Map<String, dynamic> json) {
     List<Candidacy> listCandidacies = [];
     List<Tag> listTags = [];
@@ -62,6 +63,7 @@ class Announcement {
     );
   }
 
+  //transformation en json
   Map<String, dynamic> toJson() {
     return {
       'adress': adress,

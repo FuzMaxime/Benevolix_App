@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+//Gestion centralisé des couleurs
 class ColorConstant {
   static Color darkRed = hexToColor("#FA3D3745");
   static Color red = hexToColor("#FA3D37");
@@ -12,6 +13,7 @@ class ColorConstant {
   static Color cardBg = hexToColor("#F3F3F7");
 }
 
+//transformation de l'hexadécimal en coleur utilisable
 Color hexToColor(String hex) {
   assert(RegExp(r'^#([0-9a-fA-F]{6})|([0-9a-fA-F]{8})$').hasMatch(hex),
       'hex color must be #rrggbb or #rrggbbaa');

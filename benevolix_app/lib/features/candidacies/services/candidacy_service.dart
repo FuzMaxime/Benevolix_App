@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final String baseUrl = "${dotenv.env['API_URL'] ?? "http://localhost:8080/api/v1"}/candidatures";
 
+//Création de la candidature
 Future<Candidacy?> createApplication(
     int annonceId,
     DateTime date,

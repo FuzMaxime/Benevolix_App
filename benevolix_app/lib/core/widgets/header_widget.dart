@@ -5,6 +5,7 @@ import 'package:benevolix_app/features/auth/services/user_service.dart';
 import '../../features/auth/models/user_model.dart';
 import '../constants/color.dart';
 
+//Widget du header - utilisé dans toutes les pages de l'application
 class MainHeader extends StatelessWidget {
   final String title;
 
